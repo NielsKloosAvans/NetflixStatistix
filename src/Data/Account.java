@@ -21,7 +21,7 @@ public class Account {
         this.address = address;
     }
 
-
+    //test
     public ArrayList<Profile> getProfiles() {
         return this.profiles;
     }
