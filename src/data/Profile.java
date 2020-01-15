@@ -13,7 +13,7 @@ public class Profile {
         this.age = age;
         this.email = email;
     }
-
+    
     // setter of profileName
     public void setProfileName(String profileName) {
         this.profileName = profileName;
