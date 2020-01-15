@@ -2,7 +2,6 @@ package logic;
 
 import java.sql.*;
 
-
 public class DBconnection {
     private Connection connection;
     private Statement statement;
@@ -13,7 +12,7 @@ public class DBconnection {
         connection = null;
         statement = null;
     }
-
+//connect the database with localhost
     public void connect() throws SQLException, ClassNotFoundException {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         connection = DriverManager.getConnection(connectionUrl);
