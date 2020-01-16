@@ -73,8 +73,8 @@ public class DatabaseQueries {
         return "DELETE FROM HasWatched WHERE ProfileName = '" + profileName + "' AND ProgramId = " + programId + " AND Email = '" + email + "';";
     }
 
-    public String updateWatched(String profileName, String email, int newMinutesWatched ){
-        return "UPDATE HasWatched SET MinutesWatched = " + newMinutesWatched + " WHERE ProfileName = '" + profileName + "' AND Email = '" + email + "';";
+    public String updateWatched(String profileName, String email, int newMinutesWatched, int programId ){
+        return "UPDATE HasWatched SET MinutesWatched = " + newMinutesWatched + " WHERE ProfileName = '" + profileName + "' AND Email = '" + email + "' AND ProgramId = " + programId + ";";
     }
 
     public String percentageWatched() {
@@ -101,12 +101,28 @@ public class DatabaseQueries {
                 "GROUP BY Account.Email, Account.Name, Movie.MovieName";
     }
 
-    public String AccountOneProfile() {
+    public String accountOneProfile() {
         return "SELECT Account.Name as 'Account Name', COUNT(Profile.ProfileName) as 'No. of profiles'\n" +
                 "FROM Account\n" +
                 "INNER JOIN Profile ON Profile.Email = Account.Email\n" +
                 "GROUP BY Account.Name\n" +
                 "HAVING COUNT(Profile.ProfileName) = 1";
+    }
+    public String movieCompletelyWatched(String movie){
+        return "SELECT '" + movie + "'," + "COUNT(HasWatched.ProfileName) as 'Times fully watched' FROM Movie\n" +
+                "INNER JOIN HasWatched ON HasWatched.ProgramId = Movie.ProgramId\n" +
+                "WHERE Movie.Length = HasWatched.MinutesWatched\n" +
+                "GROUP BY Movie.MovieName";
+    }
+    public String averageWatchedEpisode(String email, int seriesId){
+        return "SELECT Series.SeriesName, Episode.EpisodeName, ROUND(((CAST(AVG(MinutesWatched) AS NUMERIC(6,2))/Episode.Length) * 100),2) as 'Percentage bekeken'\n" +
+                "FROM Account\n" +
+                "INNER JOIN HasWatched ON HasWatched.Email = Account.Email\n" +
+                "RIGHT JOIN Episode ON Episode.ProgramId = HasWatched.ProgramId\n" +
+                "INNER JOIN Series ON Episode.SeriesId = Series.SeriesId\n" +
+                "WHERE Series.SeriesId = '" + seriesId + "' AND Account.Email = '" + email + "' \n" +
+                "GROUP BY HasWatched.ProgramId, EpisodeName, SeriesName, Episode.Length, Episode.ProgramId\n" +
+                "ORDER BY SeriesName";
     }
 
 }
