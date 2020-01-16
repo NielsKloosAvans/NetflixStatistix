@@ -8,7 +8,7 @@ public class DBconnection {
     private String connectionUrl;
 
     public DBconnection() {
-        connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=netflixdik;integratedSecurity=true;";
+        connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=NetflixStatistix;integratedSecurity=true;";
         connection = null;
         statement = null;
     }
@@ -23,6 +23,20 @@ public class DBconnection {
         statement.close();
         connection.close();
     }
+
+    public ResultSet readQuery(String SQL) throws Exception {
+        return this.statement.executeQuery(SQL);
+    }
+
+
+    public void queryExecute(String SQL) throws Exception {
+        this.statement.execute(SQL);
+    }
+
+    public int updateQuery(String SQL) throws Exception {
+        return this.statement.executeUpdate(SQL);
+    }
+
 
     public Statement getStatement() {
         return statement;
