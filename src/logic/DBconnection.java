@@ -46,4 +46,8 @@ public class DBconnection {
     public Connection getConnection() {
         return connection;
     }
+
+    public String getConnectionUrl() {
+        return connectionUrl;
+    }
 }

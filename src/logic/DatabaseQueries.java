@@ -1,5 +1,7 @@
 package logic;
 
+import data.Account;
+
 public class DatabaseQueries {
     public String createAccount(String email, String name, String password, String address, String city) {
         return "INSERT INTO Account(Email, Name, Password, Address, City) VALUES('" + email + "', '" + name + "', '" + password + "', '" + address + "', '" + city + "');";
@@ -73,7 +75,7 @@ public class DatabaseQueries {
         return "DELETE FROM HasWatched WHERE ProfileName = '" + profileName + "' AND ProgramId = " + programId + " AND Email = '" + email + "';";
     }
 
-    public String updateWatched(String profileName, String email, int newMinutesWatched, int programId ){
+    public String updateWatched(String profileName, String email, int newMinutesWatched, int programId) {
         return "UPDATE HasWatched SET MinutesWatched = " + newMinutesWatched + " WHERE ProfileName = '" + profileName + "' AND Email = '" + email + "' AND ProgramId = " + programId + ";";
     }
 
@@ -108,13 +110,15 @@ public class DatabaseQueries {
                 "GROUP BY Account.Name\n" +
                 "HAVING COUNT(Profile.ProfileName) = 1";
     }
-    public String movieCompletelyWatched(String movie){
+
+    public String movieCompletelyWatched(String movie) {
         return "SELECT '" + movie + "'," + "COUNT(HasWatched.ProfileName) as 'Times fully watched' FROM Movie\n" +
                 "INNER JOIN HasWatched ON HasWatched.ProgramId = Movie.ProgramId\n" +
                 "WHERE Movie.Length = HasWatched.MinutesWatched\n" +
                 "GROUP BY Movie.MovieName";
     }
-    public String averageWatchedEpisode(String email, int seriesId){
+
+    public String averageWatchedEpisode(String email, int seriesId) {
         return "SELECT Series.SeriesName, Episode.EpisodeName, ROUND(((CAST(AVG(MinutesWatched) AS NUMERIC(6,2))/Episode.Length) * 100),2) as 'Percentage bekeken'\n" +
                 "FROM Account\n" +
                 "INNER JOIN HasWatched ON HasWatched.Email = Account.Email\n" +

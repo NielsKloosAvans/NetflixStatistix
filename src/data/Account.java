@@ -7,9 +7,10 @@ public class Account {
     private ArrayList<Profile> profiles;                                                    //Create a new ArrayList that stores Profile objects.
     private String name;                                                                    //Create a new String called name.
     private String password;                                                                //Create a new String called password.
-    private String address;                                                                 //Create a new String called password.
+    private String address;
+    private String city;                                                                     //Create a new String called password.
 
-    public Account(String email, ArrayList<Profile> profiles, String name, String password, String address) {             //Constructor for the Account class, requires an Arraylist of profiles, a name (String) and an address (Address object)
+    public Account(String email, ArrayList<Profile> profiles, String name, String password, String address, String city) {             //Constructor for the Account class, requires an Arraylist of profiles, a name (String) and an address (Address object)
         //No more than five profiles can be linked to an account
         if (profiles.size() > 5) {                                                          //Check if the size of ArrayList profiles is greater than 5.
             throw new IllegalArgumentException();                                           //If yes, throw an IllegalArgumentException
@@ -19,7 +20,10 @@ public class Account {
         this.name = name;
         this.password = password;
         this.address = address;
+        this.city = city;
+
     }
+
 
     public ArrayList<Profile> getProfiles() {
         return this.profiles;
@@ -38,6 +42,18 @@ public class Account {
 
     public String getAddress() {
         return address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getCity() {
+        return city;
     }
 
     @Override
