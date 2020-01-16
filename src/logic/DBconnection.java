@@ -8,11 +8,12 @@ public class DBconnection {
     private String connectionUrl;
 
     public DBconnection() {
-        connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=NetflixStatistix;integratedSecurity=true;";
+        connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=Netflixstatistix1;integratedSecurity=true;";
         connection = null;
         statement = null;
     }
-//connect the database with localhost
+
+    //connect the database with localhost
     public void connect() throws SQLException, ClassNotFoundException {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         connection = DriverManager.getConnection(connectionUrl);
