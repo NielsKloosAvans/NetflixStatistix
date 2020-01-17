@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import logic.AccountQueries;
 
 public class LoginController {
+
     @FXML
     private TextField txtRegisterEmail;
 
@@ -24,15 +25,15 @@ public class LoginController {
     @FXML
     private TextField txtRegisterCity;
 
-    public void Login(ActionEvent event){
+    public void Login(ActionEvent event) {
         System.out.println(txtRegisterEmail.getText());
         System.out.println(txtRegisterName.getText());
 
     }
 
-    public void makeAccount(){
+    public void makeAccount() {
         AccountQueries account = new AccountQueries();
-        account.createAccount(txtRegisterName.getText(),txtRegisterEmail.getText(),txtRegisterPassword.getText(),txtRegisterAddress.getText(),txtRegisterCity.getText());
+        account.createAccount(txtRegisterName.getText(), txtRegisterEmail.getText(), txtRegisterPassword.getText(), txtRegisterAddress.getText(), txtRegisterCity.getText());
     }
 
 
