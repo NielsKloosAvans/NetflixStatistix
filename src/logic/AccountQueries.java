@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class AccountQueries {
     private DBconnection database = new DBconnection();
 
-    public boolean createAccount(String name, String email, String password, String address, String city) {
+    public boolean createAccount(String name, String email, String password, String address,String city) {
         boolean result = false;
 
         try {
@@ -46,14 +46,13 @@ public class AccountQueries {
             statement.execute();
             result = true;
             con.close();
-        } catch (SQLException e) {
+        } catch (SQLException e){
             System.out.println("Error while updating account.");
         }
 
         return result;
     }
-
-    public boolean deleteAccount(Account account) {
+    public boolean deleteAccount(Account account){
         boolean result = false;
 
         try {
@@ -63,14 +62,13 @@ public class AccountQueries {
             statement.execute();
             result = true;
             con.close();
-        } catch (SQLException e) {
+        } catch (SQLException e){
             System.out.println("Error while deleting account.");
         }
 
         return result;
     }
-
-    public boolean loginAccount(String email, String password) {
+    public boolean loginAccount(String email, String password){
         boolean result = false;
 
         try {
@@ -79,7 +77,7 @@ public class AccountQueries {
             statement.execute();
             result = true;
             con.close();
-        } catch (SQLException e) {
+        } catch (SQLException e){
             System.out.println("Error while logging in.");
         }
 
