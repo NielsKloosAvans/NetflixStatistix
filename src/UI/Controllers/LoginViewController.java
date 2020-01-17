@@ -1,15 +1,22 @@
-package UI.LogIn;
+package UI.Controllers;
 
+import data.Account;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 import logic.AccountQueries;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import logic.AccountQueries;
 
-public class LoginController {
+import java.io.IOException;
+
+public class LoginViewController {
     @FXML
     private TextField txtRegisterEmail;
 
@@ -28,29 +35,48 @@ public class LoginController {
     @FXML
     private TextField txtLoginEmail;
 
-    @FXML TextField txtLoginPassword;
+    @FXML
+    private TextField txtLoginPassword;
 
+    @FXML
+    private void showAccount(ActionEvent event) throws IOException {
+        Parent AccountView = FXMLLoader.load(getClass().getResource("AccountView.fxml"));
 
+        Scene AccountScene = new Scene(AccountView);
 
-    public void makeAccount(){
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(AccountScene);
+        window.show();
+    }
+
+    public void makeAccount() {
         AccountQueries account = new AccountQueries();
-
         boolean succeeded = account.createAccount(txtRegisterName.getText(),txtRegisterEmail.getText(),txtRegisterPassword.getText(),txtRegisterAddress.getText(),txtRegisterCity.getText());
 
         if(succeeded){
             new Alert(Alert.AlertType.INFORMATION,"Account created.").show();
+
         } else {
             new Alert(Alert.AlertType.ERROR,"Failed to create an account.").show();
         }
+
     }
 
-    public void loginAccount(){
+
+    public void loginAccount(ActionEvent event) throws IOException{
         AccountQueries account = new AccountQueries();
-
         boolean succeeded = account.loginAccount(txtLoginEmail.getText(), txtLoginPassword.getText());
-
         if(succeeded){
             new Alert(Alert.AlertType.INFORMATION,"Login Successful.").show();
+
+            Parent AccountView = FXMLLoader.load(getClass().getResource("AccountView.fxml"));
+
+            Scene AccountScene = new Scene(AccountView);
+
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(AccountScene);
+            window.show();
+
         } else {
             new Alert(Alert.AlertType.ERROR,"Failed to login.").show();
         }

@@ -7,6 +7,7 @@ import javafx.scene.control.PasswordField;
 import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AccountQueries {
     private DBconnection database = new DBconnection();
@@ -88,5 +89,29 @@ public class AccountQueries {
         }
 
         return result;
+    }
+
+    public List<Account> getAll(){
+        ArrayList<Account> accounts = new ArrayList<>();
+        try{
+            Connection con = DriverManager.getConnection(database.getConnectionUrl());
+            PreparedStatement statement = con.prepareStatement("SELECT * FROM ACCOUNT");
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()){
+                String email = rs.getString("Email");
+                String name = rs.getString("Name");
+                String password = rs.getString("Password");
+                String address = rs.getString("Address");
+                String city = rs.getString("City");
+                accounts.add(new Account(email,name,password,address,city));
+            }
+            con.close();
+
+
+        } catch (SQLException e){
+            System.out.println("Error while getting all accounts.");
+        }
+        return accounts;
     }
 }
