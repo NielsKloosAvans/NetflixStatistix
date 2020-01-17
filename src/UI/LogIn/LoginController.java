@@ -1,5 +1,6 @@
 package UI.LogIn;
 
+import javafx.scene.control.Alert;
 import logic.AccountQueries;
 
 import javafx.event.ActionEvent;
@@ -24,15 +25,36 @@ public class LoginController {
     @FXML
     private TextField txtRegisterCity;
 
-    public void Login(ActionEvent event){
-        System.out.println(txtRegisterEmail.getText());
-        System.out.println(txtRegisterName.getText());
+    @FXML
+    private TextField txtLoginEmail;
 
-    }
+    @FXML TextField txtLoginPassword;
+
+
 
     public void makeAccount(){
         AccountQueries account = new AccountQueries();
-        account.createAccount(txtRegisterName.getText(),txtRegisterEmail.getText(),txtRegisterPassword.getText(),txtRegisterAddress.getText(),txtRegisterCity.getText());
+
+        boolean succeeded = account.createAccount(txtRegisterName.getText(),txtRegisterEmail.getText(),txtRegisterPassword.getText(),txtRegisterAddress.getText(),txtRegisterCity.getText());
+
+        if(succeeded){
+            new Alert(Alert.AlertType.INFORMATION,"Account created.").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR,"Failed to create an account.").show();
+        }
+    }
+
+    public void loginAccount(){
+        AccountQueries account = new AccountQueries();
+
+        boolean succeeded = account.loginAccount(txtLoginEmail.getText(), txtLoginPassword.getText());
+
+        if(succeeded){
+            new Alert(Alert.AlertType.INFORMATION,"Login Successful.").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR,"Failed to login.").show();
+        }
+
     }
 
 

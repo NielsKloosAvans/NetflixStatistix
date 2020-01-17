@@ -15,6 +15,7 @@ public class GUI extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 1266, 710));
         primaryStage.show();
+
     }
 
 
