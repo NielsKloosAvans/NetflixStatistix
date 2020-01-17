@@ -57,7 +57,6 @@ public class AccountSettingsController {
         AccountQueries accountQueries = new AccountQueries();
         Account account = cb.getSelectionModel().getSelectedItem();
         if (account != null) {
-            account.setEmail(ChangeEmail.getText());
             account.setName(ChangeName.getText());
             account.setPassword(ChangePassword.getText());
             account.setAddress(ChangeAddress.getText());
@@ -71,8 +70,8 @@ public class AccountSettingsController {
             }
         }
     }
-
-    private void refreshAccounts() {
+    @FXML
+    public void refreshAccounts() {
         AccountQueries account = new AccountQueries();
         accounts = account.getAll();
         ObservableList cbList = FXCollections.observableList(accounts);

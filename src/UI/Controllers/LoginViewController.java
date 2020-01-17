@@ -75,6 +75,7 @@ public class LoginViewController {
 
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(AccountScene);
+
             window.show();
 
         } else {
@@ -82,6 +83,7 @@ public class LoginViewController {
         }
 
     }
+
 
 
 }

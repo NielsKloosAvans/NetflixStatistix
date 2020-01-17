@@ -37,12 +37,12 @@ public class AccountQueries {
 
         try {
             Connection con = DriverManager.getConnection(database.getConnectionUrl());
-            PreparedStatement statement = con.prepareStatement("UPDATE Account SET Email = ?, Name = ?, Password = ?, Address = ?, City = ? WHERE Email = ?;");
-            statement.setString(1, account.getEmail());
-            statement.setString(2, account.getName());
-            statement.setString(3, account.getPassword());
-            statement.setString(4, account.getAddress());
-            statement.setString(5, account.getCity());
+            PreparedStatement statement = con.prepareStatement("UPDATE Account SET Name = ?, Password = ?, Address = ?, City = ? WHERE Email = ?;");
+            statement.setString(1, account.getName());
+            statement.setString(2, account.getPassword());
+            statement.setString(3, account.getAddress());
+            statement.setString(4, account.getCity());
+            statement.setString(5, account.getEmail());
             statement.execute();
             result = true;
             con.close();
@@ -104,9 +104,8 @@ public class AccountQueries {
                 String city = rs.getString("City");
                 accounts.add(new Account(email,name,password,address,city));
             }
+
             con.close();
-
-
         } catch (SQLException e){
             System.out.println("Error while getting all accounts.");
         }
