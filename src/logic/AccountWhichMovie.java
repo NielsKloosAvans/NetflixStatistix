@@ -32,7 +32,7 @@ public class AccountWhichMovie {
 
             con.close();
         } catch (SQLException e) {
-            System.out.println("");
+            System.out.println("Error while getting movies");
         }
 
         return movies;
