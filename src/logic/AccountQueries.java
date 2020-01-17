@@ -68,4 +68,21 @@ public class AccountQueries {
 
         return result;
     }
+
+
+    public boolean loginAccount(String email, String password){
+        boolean result = false;
+
+        try {
+            Connection con = DriverManager.getConnection(database.getConnectionUrl());
+            PreparedStatement statement = con.prepareStatement("SELECT * FROM ACCOUNT WHERE Email = '" + email + "' AND Password ='" + password + "'");
+            statement.execute();
+            result = true;
+            con.close();
+        } catch (SQLException e){
+            System.out.println("Error while logging in.");
+        }
+
+        return result;
+    }
 }
