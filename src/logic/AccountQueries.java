@@ -68,6 +68,8 @@ public class AccountQueries {
 
         return result;
     }
+
+
     public boolean loginAccount(String email, String password){
         boolean result = false;
 
@@ -111,4 +113,6 @@ public class AccountQueries {
         }
         return accounts;
     }
+
+
 }

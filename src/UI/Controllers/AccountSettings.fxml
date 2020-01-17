@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.AccountSettingsController">
+<VBox prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.AccountSettingsController">
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" onDragDetected="#updateAccount" prefHeight="531.0" prefWidth="638.0" style="-fx-background-color: #282828;" VBox.vgrow="ALWAYS">
          <children>
@@ -21,17 +21,17 @@
             </ImageView>
             <Button layoutX="1046.0" layoutY="55.0" mnemonicParsing="false" onAction="#showAccountOverview" prefHeight="45.0" prefWidth="139.0" text="Account View" />
             <Text fill="WHITE" layoutX="98.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AccountSettings" />
-            <Button layoutX="546.0" layoutY="625.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="174.0" text="Remove this account" />
-            <Button layoutX="546.0" layoutY="396.0" mnemonicParsing="false" onAction="#updateAccount" prefHeight="45.0" prefWidth="174.0" text="Update" />
+            <Button layoutX="546.0" layoutY="579.0" mnemonicParsing="false" onAction="#removeAccount" prefHeight="45.0" prefWidth="174.0" text="Remove this account" />
+            <Button layoutX="546.0" layoutY="396.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="174.0" text="Update" />
             <TextField fx:id="ChangeName" layoutX="509.0" layoutY="242.0" prefHeight="27.0" prefWidth="253.0" promptText="Name" />
-            <TextField fx:id="ChangeEmail" layoutX="509.0" layoutY="205.0" prefHeight="27.0" prefWidth="253.0" promptText="Email" />
-            <Text fill="WHITE" layoutX="555.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change account settings:" />
+            <Text fill="WHITE" layoutX="556.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change account settings:" />
             <TextField fx:id="ChangeAddress" layoutX="509.0" layoutY="316.0" prefHeight="27.0" prefWidth="253.0" promptText="Address" />
             <PasswordField fx:id="ChangePassword" layoutX="509.0" layoutY="279.0" prefHeight="27.0" prefWidth="253.0" promptText="Password" />
             <TextField fx:id="ChangeCity" layoutX="509.0" layoutY="353.0" prefHeight="27.0" prefWidth="253.0" promptText="City" />
-            <ComboBox fx:id="cb" layoutX="509.0" layoutY="166.0" prefHeight="27.0" prefWidth="150.0" />
-            <ComboBox fx:id="cb1" layoutX="558.0" layoutY="587.0" prefWidth="150.0" />
-            <Button layoutX="671.0" layoutY="166.0" mnemonicParsing="false" onAction="#refreshAccounts" prefHeight="27.0" prefWidth="90.0" text="Refresh list" />
+            <ComboBox fx:id="cb" layoutX="510.0" layoutY="201.0" prefHeight="27.0" prefWidth="150.0" />
+            <ComboBox fx:id="cb" layoutX="510.0" layoutY="541.0" prefWidth="150.0" />
+            <Button layoutX="672.0" layoutY="201.0" mnemonicParsing="false" onAction="#refreshAccounts" prefHeight="27.0" prefWidth="90.0" text="Refresh list" />
+            <Button layoutX="672.0" layoutY="541.0" mnemonicParsing="false" onAction="#refreshAccounts" prefHeight="27.0" prefWidth="90.0" text="Refresh list" />
          </children>
       </AnchorPane>
    </children>

@@ -83,5 +83,19 @@ public class AccountSettingsController {
         ChangeCity.setText("");
     }
 
+    @FXML
+    public void removeAccount(){
+        AccountQueries accountQueries = new AccountQueries();
+        Account account = cb.getSelectionModel().getSelectedItem();
+        boolean succeeded = accountQueries.deleteAccount(account);
+
+        if (succeeded){
+            refreshAccounts();
+            new Alert(Alert.AlertType.INFORMATION, "Removed account successfully.").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Removed account unsuccessfully.").show();
+        }
+    }
+
 
 }
