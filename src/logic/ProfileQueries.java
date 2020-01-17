@@ -15,7 +15,7 @@ public class ProfileQueries {
 
         try {
             Connection con = DriverManager.getConnection(database.getConnectionUrl());
-            PreparedStatement statement = con.prepareStatement("INSERT INTO Profile (ProfileName, email, age) VALUES(?);");
+            PreparedStatement statement = con.prepareStatement("INSERT INTO Profile (ProfileName, email, age) VALUES(?,?,?);");
             statement.setString(1, profileName);
             statement.setString(2, email);
             statement.setInt(3, age);
