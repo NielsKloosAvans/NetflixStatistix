@@ -2,11 +2,10 @@ package logic;
 
 import data.Account;
 import data.Profile;
+import javafx.scene.control.PasswordField;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import javax.xml.transform.Result;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class AccountQueries {
@@ -74,8 +73,13 @@ public class AccountQueries {
         try {
             Connection con = DriverManager.getConnection(database.getConnectionUrl());
             PreparedStatement statement = con.prepareStatement("SELECT * FROM ACCOUNT WHERE Email = '" + email + "' AND Password ='" + password + "'");
-            statement.execute();
-            result = true;
+            ResultSet rs = statement.executeQuery();
+            if (!rs.next()){
+                System.out.println("No data");
+            } else {
+                statement.execute();
+                result = true;
+            }
             con.close();
         } catch (SQLException e){
             System.out.println("Error while logging in.");
