@@ -31,7 +31,7 @@ public class AccountOneProfile {
                 String profileName = rs.getString("ProfileName");
                 int age = rs.getInt("Age");
                 profiles.add(new Profile(profileName, age, email));
-                accounts.add(new Account(email, profiles, name, password, address, city));
+                accounts.add(new Account(email, name, password, address, city));
             }
 
             con.close();
