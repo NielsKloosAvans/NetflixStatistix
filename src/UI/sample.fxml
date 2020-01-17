@@ -16,7 +16,7 @@
             <children>
                 <ImageView fitHeight="136.0" fitWidth="558.0" layoutX="448.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/Netflix.png" />
+                        <Image url="@" />
                     </image>
                 </ImageView>
                 <Button layoutX="527.0" layoutY="394.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="399.0" text="Create your account">

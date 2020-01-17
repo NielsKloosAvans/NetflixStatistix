@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abfd4769-69b3-4947-8269-9a907a926f98" name="Default Changelist" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/UI/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/sample.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
+    <list default="true" id="abfd4769-69b3-4947-8269-9a907a926f98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NetflixStatistix.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NetflixStatistix.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/images/Netflix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/sample.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +16,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="module-info" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="module-info" />
       </list>
     </option>
   </component>
@@ -42,6 +40,15 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/UI" />
+      <recent name="$PROJECT_DIR$/src/UI/Login" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/UI/images" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.NetflixStatistix">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -89,7 +96,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579096216737</updated>
-      <workItem from="1579257645831" duration="292000" />
+      <workItem from="1579257645831" duration="1846000" />
     </task>
     <task id="LOCAL-00001" summary="123">
       <created>1579099439424</created>
@@ -175,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579198359343</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="UI commit">
+      <created>1579258256964</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1579258256964</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -208,37 +222,46 @@
     <MESSAGE value="First commit" />
     <MESSAGE value="More Queries" />
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="UI commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2424" y="393" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579257973864">
+    <state x="2424" y="393" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579260488653">
       <screen x="1680" y="23" width="2560" height="1417" />
     </state>
-    <state x="2424" y="393" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579257973864" />
-    <state x="2697" y="522" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1579257943640">
+    <state x="2424" y="393" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579260488653" />
+    <state x="2697" y="522" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1579260433611">
       <screen x="1680" y="23" width="2560" height="1417" />
     </state>
-    <state x="2697" y="522" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579257943640" />
-    <state width="2518" height="408" key="GridCell.Tab.0.bottom" timestamp="1579258152123">
+    <state x="2697" y="522" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579260433611" />
+    <state x="2429" y="334" key="CommitChangelistDialog2" timestamp="1579258256810">
       <screen x="1680" y="23" width="2560" height="1417" />
     </state>
-    <state width="2518" height="408" key="GridCell.Tab.0.bottom/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579258152123" />
-    <state width="2518" height="408" key="GridCell.Tab.0.center" timestamp="1579258152121">
+    <state x="2429" y="334" key="CommitChangelistDialog2/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579258256810" />
+    <state width="2518" height="137" key="GridCell.Tab.0.bottom" timestamp="1579260184670">
       <screen x="1680" y="23" width="2560" height="1417" />
     </state>
-    <state width="2518" height="408" key="GridCell.Tab.0.center/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579258152121" />
-    <state width="2518" height="408" key="GridCell.Tab.0.left" timestamp="1579258152121">
+    <state width="2518" height="137" key="GridCell.Tab.0.bottom/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579260184670" />
+    <state width="2518" height="137" key="GridCell.Tab.0.center" timestamp="1579260184669">
       <screen x="1680" y="23" width="2560" height="1417" />
     </state>
-    <state width="2518" height="408" key="GridCell.Tab.0.left/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579258152121" />
-    <state width="2518" height="408" key="GridCell.Tab.0.right" timestamp="1579258152122">
+    <state width="2518" height="137" key="GridCell.Tab.0.center/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579260184669" />
+    <state width="2518" height="137" key="GridCell.Tab.0.left" timestamp="1579260184668">
       <screen x="1680" y="23" width="2560" height="1417" />
     </state>
-    <state width="2518" height="408" key="GridCell.Tab.0.right/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579258152122" />
+    <state width="2518" height="137" key="GridCell.Tab.0.left/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579260184668" />
+    <state width="2518" height="137" key="GridCell.Tab.0.right" timestamp="1579260184670">
+      <screen x="1680" y="23" width="2560" height="1417" />
+    </state>
+    <state width="2518" height="137" key="GridCell.Tab.0.right/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579260184670" />
     <state x="2448" y="313" key="SettingsEditor" timestamp="1579258042643">
       <screen x="1680" y="23" width="2560" height="1417" />
     </state>
     <state x="2448" y="313" key="SettingsEditor/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579258042643" />
+    <state x="2560" y="471" key="Vcs.Push.Dialog.v2" timestamp="1579260868073">
+      <screen x="1680" y="23" width="2560" height="1417" />
+    </state>
+    <state x="2560" y="471" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.23.2560.1417@1680.23.2560.1417" timestamp="1579260868073" />
     <state x="2543" y="530" key="git4idea.merge.GitPullDialog" timestamp="1579255755873">
       <screen x="1680" y="23" width="2560" height="1417" />
     </state>
