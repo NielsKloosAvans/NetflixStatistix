@@ -1,4 +1,4 @@
-package UI;
+package UI.LogIn;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +11,9 @@ public class GUI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Login/sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("LoginView.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1450, 1028));
+        primaryStage.setScene(new Scene(root, 1266, 710));
         primaryStage.show();
     }
 

@@ -3,5 +3,5 @@ module NetflixStatistix {
     requires javafx.controls;
     requires java.sql;
 
-    opens UI;
+    opens UI.LogIn;
 }
