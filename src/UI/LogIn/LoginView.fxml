@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.LogIn.Controller">
+<VBox prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.LogIn.LoginController">
 
     <children>
         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="531.0" prefWidth="638.0" style="-fx-background-color: #282828;" VBox.vgrow="ALWAYS">
@@ -20,7 +20,7 @@
                         <Image url="@../images/Netflix.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="434.0" layoutY="365.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="399.0" text="Create your account">
+                <Button layoutX="434.0" layoutY="365.0" mnemonicParsing="false" onAction="#makeAccount" prefHeight="38.0" prefWidth="399.0" text="Create your account">
                     <font>
                         <Font size="19.0" />
                     </font>

@@ -2,7 +2,7 @@ package logic;
 
 import java.sql.*;
 
-public class movieCompletelyWatched {
+public class MovieCompletelyWatched {
     private DBconnection database = new DBconnection();
 
     public int Movie(int programId) {

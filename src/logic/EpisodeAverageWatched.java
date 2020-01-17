@@ -9,7 +9,7 @@ import java.util.List;
 public class EpisodeAverageWatched {
     DBconnection database = new DBconnection();
 
-    public List<Episode> episodeAverageWatched(int serieId, String email) {
+    public List<Episode> episodeAverageWatched(int seriesId, String email) {
         ArrayList<Episode> episodes = new ArrayList<>();
 
         try {
@@ -19,7 +19,7 @@ public class EpisodeAverageWatched {
                     "INNER JOIN HasWatched ON HasWatched.Email = Account.Email\n" +
                     "RIGHT JOIN Episode ON Episode.ProgramId = HasWatched.ProgramId\n" +
                     "INNER JOIN Series ON Episode.SeriesId = Series.SeriesId\n" +
-                    "WHERE Series.SeriesId = '" + serieId + "' AND Account.Email = '" + email + "'\n" +
+                    "WHERE Series.SeriesId = '" + seriesId + "' AND Account.Email = '" + email + "'\n" +
                     "GROUP BY HasWatched.ProgramId, EpisodeName, SeriesName, Episode.Length, Episode.ProgramId\n" +
                     "ORDER BY SeriesName");
 

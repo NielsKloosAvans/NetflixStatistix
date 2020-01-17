@@ -6,10 +6,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class episodeAverageWatchedSeries {
+public class EpisodeAverageWatchedSeries {
     DBconnection database = new DBconnection();
 
-    public List<Episode> episodeGetPercentage(int serieId) {
+    public List<Episode> episodeGetPercentage(int seriesId) {
         ArrayList<Episode> episodes = new ArrayList<>();
 
         try {
@@ -18,7 +18,7 @@ public class episodeAverageWatchedSeries {
                     "FROM HasWatched\n" +
                     "RIGHT JOIN Episode ON Episode.ProgramId = HasWatched.ProgramId\n" +
                     "INNER JOIN Series ON Episode.SeriesId = Series.SeriesId\n" +
-                    "WHERE Series.SeriesId = '" + serieId + "' \n" +
+                    "WHERE Series.SeriesId = '" + seriesId + "' \n" +
                     "GROUP BY HasWatched.ProgramId, EpisodeName, SeriesName, Episode.Length, Episode.ProgramId\n" +
                     "ORDER BY SeriesName");
 

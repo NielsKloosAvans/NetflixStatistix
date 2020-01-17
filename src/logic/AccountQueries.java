@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class AccountQueries {
     private DBconnection database = new DBconnection();
 
-    public boolean createAccount(String name, String email, String password, String address, ArrayList<Profile> profiles, String city) {
+    public boolean createAccount(String name, String email, String password, String address,String city) {
         boolean result = false;
 
         try {
