@@ -33,4 +33,15 @@ public class AccountViewController {
         window.setScene(newScene);
         window.show();
     }
+
+    @FXML
+    private void showProfileSettings(ActionEvent event) throws IOException {
+        Parent newView = FXMLLoader.load(getClass().getResource("ProfileSettings.fxml"));
+
+        Scene newScene = new Scene(newView);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(newScene);
+        window.show();
+    }
 }

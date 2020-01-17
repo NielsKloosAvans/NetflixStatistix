@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.ProfileSettingsController">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="531.0" prefWidth="638.0" style="-fx-background-color: #282828;" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView fitHeight="136.0" fitWidth="558.0" layoutX="354.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Netflix.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="989.0" layoutY="46.0" mnemonicParsing="false" onAction="#showAccountOverview" prefHeight="45.0" prefWidth="210.0" text="Back to Account Overview" />
+            <Text fill="WHITE" layoutX="107.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ProfileSettings" />
+            <Text fill="WHITE" layoutX="116.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in" />
+            <TextField fx:id="updateProfileName" layoutX="549.0" layoutY="343.0" promptText="Profile Name" />
+            <TextField fx:id="updateProfileAge" layoutX="549.0" layoutY="378.0" promptText="Age" />
+            <Text fill="WHITE" layoutX="568.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change profile">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Button layoutX="149.0" layoutY="415.0" mnemonicParsing="false" onAction="#createProfile" prefHeight="27.0" prefWidth="129.0" text="Create Profile" />
+            <Button layoutX="569.0" layoutY="415.0" mnemonicParsing="false" onAction="#updateProfile" prefHeight="27.0" prefWidth="129.0" text="Update profile" />
+            <Button layoutX="989.0" layoutY="415.0" mnemonicParsing="false" onAction="#removeProfile" prefHeight="27.0" prefWidth="129.0" text="Remove profile" />
+            <ComboBox fx:id="accounts" layoutX="130.0" layoutY="306.0" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
+            <TextField fx:id="createProfileName" layoutX="130.0" layoutY="343.0" promptText="Profile Name" />
+            <TextField fx:id="createProfileAge" layoutX="130.0" layoutY="378.0" promptText="Age" />
+            <ComboBox fx:id="profiles" layoutX="970.0" layoutY="378.0" prefHeight="27.0" prefWidth="167.0" promptText="Profile" />
+            <Button layoutX="130.0" layoutY="272.0" mnemonicParsing="false" onAction="#refresh" prefHeight="27.0" prefWidth="77.0" text="Refresh" />
+            <Button layoutX="549.0" layoutY="272.0" mnemonicParsing="false" onAction="#refresh" prefHeight="27.0" prefWidth="77.0" text="Refresh" />
+            <Button layoutX="970.0" layoutY="342.0" mnemonicParsing="false" onAction="#refresh" prefHeight="27.0" prefWidth="77.0" text="Refresh" />
+            <ComboBox fx:id="cbProfile" layoutX="549.0" layoutY="309.0" prefHeight="27.0" prefWidth="167.0" promptText="Profile" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

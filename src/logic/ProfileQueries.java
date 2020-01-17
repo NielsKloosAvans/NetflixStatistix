@@ -1,24 +1,23 @@
 package logic;
 
+import data.Account;
 import data.Profile;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileQueries {
     private DBconnection database = new DBconnection();
 
-    public boolean createProfile(String profileName, String email, int age) {
+    public boolean createProfile(String profileName, int age) {
         boolean result = false;
 
         try {
             Connection con = DriverManager.getConnection(database.getConnectionUrl());
-            PreparedStatement statement = con.prepareStatement("INSERT INTO Profile (ProfileName, email, age) VALUES(?,?,?);");
+            PreparedStatement statement = con.prepareStatement("INSERT INTO Profile (ProfileName, age) VALUES(?,?);");
             statement.setString(1, profileName);
-            statement.setString(2, email);
-            statement.setInt(3, age);
+=            statement.setInt(2, age);
             statement.execute();
             result = true;
             con.close();
@@ -61,4 +60,26 @@ public class ProfileQueries {
         }
         return result;
     }
+
+    public List<Profile> getAll(){
+        ArrayList<Profile> profiles = new ArrayList<>();
+        try{
+            Connection con = DriverManager.getConnection(database.getConnectionUrl());
+            PreparedStatement statement = con.prepareStatement("SELECT * FROM Profile");
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()){
+                String name = rs.getString("Name");
+                String email = rs.getString("Email");
+                int age = rs.getInt("Age");
+                profiles.add(new Profile(name, age, email));
+            }
+
+            con.close();
+        } catch (SQLException e){
+            System.out.println("Error while getting all accounts.");
+        }
+        return profiles;
+    }
+
 }
