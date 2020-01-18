@@ -22,16 +22,14 @@
             <Button layoutX="1046.0" layoutY="55.0" mnemonicParsing="false" onAction="#showAccountOverview" prefHeight="45.0" prefWidth="139.0" text="Account View" />
             <Text fill="WHITE" layoutX="98.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AccountSettings" />
             <Button layoutX="546.0" layoutY="579.0" mnemonicParsing="false" onAction="#removeAccount" prefHeight="45.0" prefWidth="174.0" text="Remove this account" />
-            <Button layoutX="546.0" layoutY="396.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="174.0" text="Update" />
+            <Button layoutX="546.0" layoutY="396.0" mnemonicParsing="false" onAction="#updateAccount" prefHeight="45.0" prefWidth="174.0" text="Update" />
             <TextField fx:id="ChangeName" layoutX="509.0" layoutY="242.0" prefHeight="27.0" prefWidth="253.0" promptText="Name" />
             <Text fill="WHITE" layoutX="556.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change account settings:" />
             <TextField fx:id="ChangeAddress" layoutX="509.0" layoutY="316.0" prefHeight="27.0" prefWidth="253.0" promptText="Address" />
             <PasswordField fx:id="ChangePassword" layoutX="509.0" layoutY="279.0" prefHeight="27.0" prefWidth="253.0" promptText="Password" />
             <TextField fx:id="ChangeCity" layoutX="509.0" layoutY="353.0" prefHeight="27.0" prefWidth="253.0" promptText="City" />
-            <ComboBox fx:id="cb" layoutX="510.0" layoutY="201.0" prefHeight="27.0" prefWidth="150.0" />
-            <ComboBox fx:id="cb" layoutX="510.0" layoutY="541.0" prefWidth="150.0" />
-            <Button layoutX="672.0" layoutY="201.0" mnemonicParsing="false" onAction="#refreshAccounts" prefHeight="27.0" prefWidth="90.0" text="Refresh list" />
-            <Button layoutX="672.0" layoutY="541.0" mnemonicParsing="false" onAction="#refreshAccounts" prefHeight="27.0" prefWidth="90.0" text="Refresh list" />
+            <ComboBox fx:id="cbUpdate" layoutX="510.0" layoutY="201.0" onMouseClicked="#refreshAccountsUpdate" prefHeight="27.0" prefWidth="253.0" promptText="Select Account" />
+            <ComboBox fx:id="cbRemove" layoutX="510.0" layoutY="541.0" onMouseClicked="#refreshAccountsRemove" prefHeight="27.0" prefWidth="253.0" promptText="Select Account" />
          </children>
       </AnchorPane>
    </children>

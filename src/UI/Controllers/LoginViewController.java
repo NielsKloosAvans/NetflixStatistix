@@ -38,17 +38,6 @@ public class LoginViewController {
     @FXML
     private TextField txtLoginPassword;
 
-    @FXML
-    private void showAccount(ActionEvent event) throws IOException {
-        Parent AccountView = FXMLLoader.load(getClass().getResource("AccountView.fxml"));
-
-        Scene AccountScene = new Scene(AccountView);
-
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(AccountScene);
-        window.show();
-    }
-
     public void makeAccount() {
         AccountQueries account = new AccountQueries();
         boolean succeeded = account.createAccount(txtRegisterName.getText(),txtRegisterEmail.getText(),txtRegisterPassword.getText(),txtRegisterAddress.getText(),txtRegisterCity.getText());
@@ -65,25 +54,18 @@ public class LoginViewController {
 
     public void loginAccount(ActionEvent event) throws IOException{
         AccountQueries account = new AccountQueries();
-        boolean succeeded = account.loginAccount(txtLoginEmail.getText(), txtLoginPassword.getText());
-        if(succeeded){
-            new Alert(Alert.AlertType.INFORMATION,"Login Successful.").show();
-
-            Parent AccountView = FXMLLoader.load(getClass().getResource("AccountView.fxml"));
-
-            Scene AccountScene = new Scene(AccountView);
-
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-            window.setScene(AccountScene);
-
-            window.show();
-
-        } else {
-            new Alert(Alert.AlertType.ERROR,"Failed to login.").show();
+            if (!txtLoginEmail.getText().isEmpty() || !txtLoginPassword.getText().isEmpty()){
+                boolean succeeded = account.loginAccount(txtLoginEmail.getText(), txtLoginPassword.getText());
+                if(succeeded){
+                    new Alert(Alert.AlertType.INFORMATION,"Login Successful.").show();
+                    Parent AccountView = FXMLLoader.load(getClass().getResource("AccountView.fxml"));
+                    Scene AccountScene = new Scene(AccountView);
+                    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    window.setScene(AccountScene);
+                    window.show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR,"Failed to login.").show();
+                }
+            }
         }
-
     }
-
-
-
-}

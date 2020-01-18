@@ -10,14 +10,17 @@ import java.util.List;
 public class ProfileQueries {
     private DBconnection database = new DBconnection();
 
-    public boolean createProfile(String profileName, int age) {
+    public boolean createProfile(Account account, String profileName, int age) {
         boolean result = false;
 
+        Profile profile = new Profile(profileName,age,account.getEmail());
+        account.addProfile(profile);
         try {
             Connection con = DriverManager.getConnection(database.getConnectionUrl());
-            PreparedStatement statement = con.prepareStatement("INSERT INTO Profile (ProfileName, age) VALUES(?,?);");
+            PreparedStatement statement = con.prepareStatement("INSERT INTO Profile (ProfileName, email, age) VALUES(?,?,?);");
             statement.setString(1, profileName);
-=            statement.setInt(2, age);
+            statement.setString(2, account.getEmail());
+            statement.setInt(3, age);
             statement.execute();
             result = true;
             con.close();

@@ -24,10 +24,10 @@ public class AccountSettingsController {
     private List<Account> accounts;
 
     @FXML
-    private ComboBox<Account> cb;
+    private ComboBox<Account> cbUpdate;
 
     @FXML
-    private TextField ChangeEmail;
+    private ComboBox<Account> cbRemove;
 
     @FXML
     private TextField ChangeName;
@@ -55,7 +55,7 @@ public class AccountSettingsController {
     @FXML
     private void updateAccount() {
         AccountQueries accountQueries = new AccountQueries();
-        Account account = cb.getSelectionModel().getSelectedItem();
+        Account account = cbUpdate.getSelectionModel().getSelectedItem();
         if (account != null) {
             account.setName(ChangeName.getText());
             account.setPassword(ChangePassword.getText());
@@ -63,21 +63,33 @@ public class AccountSettingsController {
             account.setCity(ChangeCity.getText());
             boolean succeeded = accountQueries.updateAccount(account);
             if (succeeded) {
-                refreshAccounts();
+                refreshAccountsUpdate();
                 new Alert(Alert.AlertType.INFORMATION, "Update Successful.").show();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Update Unsuccessful.").show();
             }
         }
     }
+
     @FXML
-    public void refreshAccounts() {
+    public void refreshAccountsUpdate() {
         AccountQueries account = new AccountQueries();
         accounts = account.getAll();
         ObservableList cbList = FXCollections.observableList(accounts);
-        cb.setItems(cbList);
+        cbUpdate.setItems(cbList);
         ChangeName.setText("");
-        ChangeEmail.setText("");
+        ChangePassword.setText("");
+        ChangeAddress.setText("");
+        ChangeCity.setText("");
+    }
+
+    @FXML
+    public void refreshAccountsRemove() {
+        AccountQueries account = new AccountQueries();
+        accounts = account.getAll();
+        ObservableList cbList = FXCollections.observableList(accounts);
+        cbRemove.setItems(cbList);
+        ChangeName.setText("");
         ChangePassword.setText("");
         ChangeAddress.setText("");
         ChangeCity.setText("");
@@ -86,16 +98,17 @@ public class AccountSettingsController {
     @FXML
     public void removeAccount(){
         AccountQueries accountQueries = new AccountQueries();
-        Account account = cb.getSelectionModel().getSelectedItem();
+        Account account = cbRemove.getSelectionModel().getSelectedItem();
         boolean succeeded = accountQueries.deleteAccount(account);
 
         if (succeeded){
-            refreshAccounts();
+            refreshAccountsRemove();
             new Alert(Alert.AlertType.INFORMATION, "Removed account successfully.").show();
         } else {
             new Alert(Alert.AlertType.ERROR, "Removed account unsuccessfully.").show();
         }
     }
+
 
 
 }

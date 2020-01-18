@@ -19,12 +19,15 @@ import logic.DatabaseQueries;
 import logic.ProfileQueries;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileSettingsController {
     @FXML
-    ComboBox<Profile> cbProfile;
-    ComboBox<Account> cbAccount;
+    public ComboBox<Profile> cbProfile;
+
+    @FXML
+    public ComboBox<Account> cbAccount;
 
     @FXML
     List<Account> accounts;
@@ -36,7 +39,7 @@ public class ProfileSettingsController {
     private TextField createProfileName;
 
     @FXML
-    private TextField createProfileAge;]
+    private TextField createProfileAge;
 
     @FXML
     private TextField updateProfileName;
@@ -59,10 +62,11 @@ public class ProfileSettingsController {
     @FXML
     private void createProfile(){
         ProfileQueries profileQueries = new ProfileQueries();
-
         Account account = cbAccount.getSelectionModel().getSelectedItem();
+
         if (account != null){
-            boolean succeeded = profileQueries.createProfile(createProfileName.getText(), Integer.parseInt(createProfileAge.getText()));
+            boolean succeeded = profileQueries.createProfile(account, createProfileName.getText(), Integer.parseInt(createProfileAge.getText()));
+
             if (succeeded){
                 new Alert(Alert.AlertType.INFORMATION,"Profile Created.").show();
             } else {
@@ -73,17 +77,19 @@ public class ProfileSettingsController {
     }
 
     @FXML
-    public void refresh() {
+    public void printProfiles(){
+        ProfileQueries profileQueries = new ProfileQueries();
+        System.out.println(profileQueries.getAll());
+    }
+
+    @FXML
+    public void refreshAccount() {
         AccountQueries account = new AccountQueries();
         accounts = account.getAll();
         ObservableList cbAccountList = FXCollections.observableList(accounts);
         cbAccount.setItems(cbAccountList);
         createProfileName.setText("");
         createProfileAge.setText("");
-        ProfileQueries profileQueries = new ProfileQueries();
-        profiles = profileQueries.getAll();
-        ObservableList cbProfileList = FXCollections.observableList(profiles);
-        cbProfile.setItems(cbProfileList);
     }
 
     @FXML
@@ -95,7 +101,7 @@ public class ProfileSettingsController {
 
         boolean succeeded = profileQueries.updateProfile(profile);
         if (succeeded){
-            refresh();
+            refreshAccount();
             new Alert(Alert.AlertType.INFORMATION,"Profile Updated.").show();
         } else {
             new Alert(Alert.AlertType.ERROR,"An error occurred while updating the profile.").show();
@@ -109,7 +115,7 @@ public class ProfileSettingsController {
 
         boolean succeeded = profileQueries.removeProfile(profile);
         if (succeeded){
-            refresh();
+            refreshAccount();
             new Alert(Alert.AlertType.INFORMATION,"Profile removed.").show();
         } else {
             new Alert(Alert.AlertType.ERROR,"An error occurred while removing the profile.").show();

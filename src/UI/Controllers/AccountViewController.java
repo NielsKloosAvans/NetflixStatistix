@@ -24,6 +24,17 @@ public class AccountViewController {
     }
 
     @FXML
+    private void showProfileQueries(ActionEvent event) throws IOException {
+        Parent AccountView = FXMLLoader.load(getClass().getResource("ProfileQueries.fxml"));
+
+        Scene AccountScene = new Scene(AccountView);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(AccountScene);
+        window.show();
+    }
+
+    @FXML
     private void showAccountSettings(ActionEvent event) throws IOException {
         Parent newView = FXMLLoader.load(getClass().getResource("AccountSettings.fxml"));
 

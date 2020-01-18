@@ -78,7 +78,7 @@ public class AccountQueries {
             PreparedStatement statement = con.prepareStatement("SELECT * FROM ACCOUNT WHERE Email = '" + email + "' AND Password ='" + password + "'");
             ResultSet rs = statement.executeQuery();
             if (!rs.next()){
-                System.out.println("No data");
+                System.out.println("Logged in");
             } else {
                 statement.execute();
                 result = true;
@@ -112,6 +112,30 @@ public class AccountQueries {
             System.out.println("Error while getting all accounts.");
         }
         return accounts;
+    }
+
+
+    public List<Account> getEmail(){
+        ArrayList<Account> accountEmail = new ArrayList<>();
+        try{
+            Connection con = DriverManager.getConnection(database.getConnectionUrl());
+            PreparedStatement statement = con.prepareStatement("SELECT * FROM ACCOUNT");
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()){
+                String email = rs.getString("Email");
+                String name = rs.getString("Name");
+                String password = rs.getString("Password");
+                String address = rs.getString("Address");
+                String city = rs.getString("City");
+                accountEmail.add(new Account(email,name,password,address,city));
+            }
+
+            con.close();
+        } catch (SQLException e){
+            System.out.println("Error while getting all accounts.");
+        }
+        return accountEmail;
     }
 
 

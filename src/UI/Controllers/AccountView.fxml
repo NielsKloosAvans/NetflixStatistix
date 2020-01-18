@@ -18,7 +18,7 @@
                 </ImageView>
             <Button layoutX="77.0" layoutY="221.0" mnemonicParsing="false" onAction="#showProfileSettings" prefHeight="45.0" prefWidth="139.0" text="Profile Settings" />
             <Button layoutX="77.0" layoutY="603.0" mnemonicParsing="false" onAction="#showAccountSettings" prefHeight="45.0" prefWidth="139.0" text="Account Settings" />
-            <Button layoutX="544.0" layoutY="325.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="182.0" text="Show watched movies" />
+            <Button layoutX="544.0" layoutY="325.0" mnemonicParsing="false" onAction="#showProfileQueries" prefHeight="45.0" prefWidth="182.0" text="Show watched movies" />
             <Button layoutX="587.0" layoutY="438.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="92.0" text="Button" />
             <Button layoutX="1094.0" layoutY="29.0" mnemonicParsing="false" onAction="#showLogin" prefHeight="45.0" prefWidth="92.0" text="Back" />
             <Text fill="WHITE" layoutX="107.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accountview" />
