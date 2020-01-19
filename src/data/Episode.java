@@ -5,17 +5,19 @@ public class Episode {
     private int episodeNumber;
     private int seasonNumber;
     private int durationInMinutes;
-    private int percentageWatched;
+    private int minutesWatched;
+    private int programId;
 
-    public Episode(String episodeTitle, int episodeNumber, int seasonNumber, int durationInMinutes, int percentageWatched){
-        if (episodeNumber <= 0 || seasonNumber <= 0 || durationInMinutes <= 0 || percentageWatched <= 0){
+    public Episode(String episodeTitle, int episodeNumber, int seasonNumber, int durationInMinutes, int programId){
+        if (episodeNumber <= 0 || seasonNumber <= 0 || durationInMinutes <= 0 ){
             throw new IllegalArgumentException();
         }
         this.episodeTitle = episodeTitle;
         this.episodeNumber = episodeNumber;
         this.seasonNumber = seasonNumber;
         this.durationInMinutes = durationInMinutes;
-        this.percentageWatched = percentageWatched;
+        this.programId = programId;
+        this.minutesWatched = minutesWatched;
     }
 
     public String getEpisodeTitle() {
@@ -35,6 +37,18 @@ public class Episode {
     }
 
     public int getPercentageWatched() {
-        return percentageWatched;
+        return minutesWatched;
+    }
+
+    public int getProgramId() {
+        return programId;
+    }
+
+    @Override
+    public String toString() {
+        return "Episode Name: " + episodeTitle + "\n" +
+                "Duration: " + durationInMinutes;
     }
 }
+
+

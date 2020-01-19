@@ -1,7 +1,7 @@
 package logic;
 
 import data.Account;
-import data.Serie;
+import data.Series;
 
 import java.sql.*;
 import java.util.ArrayList;

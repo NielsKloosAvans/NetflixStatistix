@@ -1,12 +1,12 @@
 package data;
 
-public class Serie extends Program {
+public class Series extends Program {
 
     private int durationInMinutes;
     private int numberOfSeasons;
     private String youMayLike;
 
-    public Serie(String title, String genre, String language, int length, int ageRating, int durationInMinutes, int numberOfSeasons, String youMayLike) {
+    public Series(String title, String genre, String language, int length, int ageRating, int durationInMinutes, int numberOfSeasons, String youMayLike) {
         super(title, genre, language, length, ageRating);
         this.durationInMinutes = durationInMinutes;
         this.numberOfSeasons = numberOfSeasons;

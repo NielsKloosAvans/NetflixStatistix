@@ -1,7 +1,7 @@
 package UI.Controllers;
 
 import data.Account;
-import data.Serie;
+import data.Series;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,7 +24,7 @@ public class ProfileQueriesController {
     private List<Account> accounts;
 
     @FXML
-    private ComboBox<Serie> cbSeries;
+    private ComboBox<Series> cbSeries;
 
     @FXML
     private ComboBox<Account> cbAccount;

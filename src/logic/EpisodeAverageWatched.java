@@ -29,8 +29,8 @@ public class EpisodeAverageWatched {
                 int episodeNumber = rs.getInt("EpisodeNumber");
                 int seasonNumber = rs.getInt("SeasonNumber");
                 int durationInMinutes = rs.getInt("DurationInMinutes");
-                int percentageWatched = rs.getInt("PercentageWatched");
-                episodes.add(new Episode(episodeTitle, episodeNumber, seasonNumber, durationInMinutes, percentageWatched));
+                int programId = rs.getInt("ProgramId");
+                episodes.add(new Episode(episodeTitle, episodeNumber, seasonNumber, durationInMinutes, programId));
             }
 
             con.close();

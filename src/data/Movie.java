@@ -1,20 +1,20 @@
 package data;
 
 public class Movie extends Program {
-    private int durationInMinutes;
+    private int programId;
 
-
-    public Movie(String title, String genre, String language, int length, int ageRating, int durationInMinutes) {
+    public Movie(String title, String genre, String language, int length, int ageRating, int programId) {
         super(title, genre, language, length, ageRating);
-        this.durationInMinutes = durationInMinutes;
+        this.programId = programId;
     }
 
-    public int getDurationInMinutes() {
-        return durationInMinutes;
+    public int getProgramId() {
+        return programId;
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Movie: " + getTitle() + "\n" +
+                "Duration " + getLength();
     }
 }

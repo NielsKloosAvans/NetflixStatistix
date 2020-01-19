@@ -10,7 +10,7 @@ public class Account {
     private String password;                                                                                //Create a new String called password.
     private String address;
     private String city;                                                                                    //Create a new String called password.
-    public ArrayList<Profile> profiles;
+    public ArrayList<Profile> profiles = new ArrayList<>();
 
     public Account(String email, String name, String password, String address, String city) {               //Constructor for the Account class, requires an Arraylist of profiles, a name (String) and an address (Address object)
         //No more than five profiles can be linked to an account
@@ -25,8 +25,12 @@ public class Account {
         this.email = email;
     }
 
-    public void AddProfile(Profile profile){
-        this.profiles.add(profile);
+    public void addProfile(Profile profile){
+        if (profiles.size() < 5) {
+            this.profiles.add(profile);
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public ArrayList<Profile> getProfiles() {
@@ -79,11 +83,6 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Accountname:" + this.getName() +
-                "email:'" + this.email + '\'' +
-                ", name:'" + name + '\'' +
-                ", password:'" + password + '\'' +
-                ", address:'" + address + '\'' +
-                '}';
+        return "Account: " + email;
     }
 }

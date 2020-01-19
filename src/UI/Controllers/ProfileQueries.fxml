@@ -20,7 +20,7 @@
                 </ImageView>
             <Text fill="WHITE" layoutX="103.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ProfileQueries" />
             <Text fill="WHITE" layoutX="116.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in" />
-            <Text fill="WHITE" layoutX="213.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show watched percentage per epsiode of: ">
+            <Text fill="WHITE" layoutX="213.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show watched percentage per episode of: ">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
@@ -60,7 +60,7 @@
             <Button layoutX="770.0" layoutY="195.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="357.0" text="Show" />
             <ComboBox layoutX="770.0" layoutY="157.0" prefHeight="27.0" prefWidth="357.0" promptText="Movie" />
             <Button layoutX="999.0" layoutY="38.0" mnemonicParsing="false" onAction="#showAccountOverview" prefHeight="45.0" prefWidth="210.0" text="Back to Account Overview" />
-            <ComboBox layoutX="214.0" layoutY="157.0" prefHeight="27.0" prefWidth="263.0" promptText="Series" />
+            <ComboBox fx:id="cbSeries" layoutX="214.0" layoutY="157.0" prefHeight="27.0" prefWidth="263.0" promptText="Series" />
             <ComboBox layoutX="214.0" layoutY="435.0" prefHeight="27.0" prefWidth="263.0" promptText="Series" />
             </children>
         </AnchorPane>
