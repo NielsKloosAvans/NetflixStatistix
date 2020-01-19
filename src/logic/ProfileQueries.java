@@ -2,6 +2,7 @@ package logic;
 
 import data.Account;
 import data.Profile;
+import javafx.scene.control.ComboBox;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,16 +11,12 @@ import java.util.List;
 public class ProfileQueries {
     private DBconnection database = new DBconnection();
 
-
     public boolean createProfile(Profile profile) {
         boolean result = false;
-
         String profileName = profile.getProfileName();
         String email = profile.getEmail();
         int age = profile.getAge();
 
-        Account account = new Account(email);
-        account.AddProfile(profile);
         try {
             Connection con = DriverManager.getConnection(database.getConnectionUrl());
             PreparedStatement statement = con.prepareStatement("INSERT INTO Profile (ProfileName, email, age) VALUES(?,?,?);");
@@ -37,13 +34,13 @@ public class ProfileQueries {
 
     public boolean updateProfile(Profile profile) {
         boolean result = false;
-
         try {
             Connection con = DriverManager.getConnection(database.getConnectionUrl());
-            PreparedStatement statement = con.prepareStatement("UPDATE Account SET ProfileName = ?, Email = ?, Age = ? WHERE ProfileName = ? AND Email = ?;");
-            statement.setString(1, profile.getProfileName());
-            statement.setString(2, profile.getEmail());
-            statement.setInt(3, profile.getAge());
+            PreparedStatement statement = con.prepareStatement("UPDATE Profile SET Age = ? WHERE ProfileName = ? AND Email = ?;");
+            statement.setInt(1, profile.getAge());
+            statement.setString(2, profile.getProfileName());
+            statement.setString(3, profile.getEmail());
+
             statement.execute();
             result = true;
             con.close();
@@ -89,5 +86,28 @@ public class ProfileQueries {
         }
         return profiles;
     }
+
+    public List<Profile> getProfilesFromAccount(Account account){
+        ArrayList<Profile> profiles = new ArrayList<>();
+        try{
+            Connection con = DriverManager.getConnection(database.getConnectionUrl());
+            PreparedStatement statement = con.prepareStatement("SELECT * FROM Profile WHERE Email ='" + account.getEmail() + "'");
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()){
+                String profileName = rs.getString("ProfileName");
+                String email = rs.getString("Email");
+                int age = rs.getInt("Age");
+                profiles.add(new Profile(profileName, age, email));
+            }
+
+            con.close();
+        } catch (SQLException e){
+            System.out.println("Error while getting all profiles.");
+        }
+        return profiles;
+    }
+
+
 
 }

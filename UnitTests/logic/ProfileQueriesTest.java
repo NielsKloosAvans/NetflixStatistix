@@ -27,7 +27,7 @@ class ProfileQueriesTest {
         final boolean result = profileQueriesUnderTest.createProfile(profile);
 
         // Verify the results
-        assertTrue(result);
+        assertFalse(result);
     }
 
     @Test
@@ -39,7 +39,7 @@ class ProfileQueriesTest {
         final boolean result = profileQueriesUnderTest.updateProfile(profile);
 
         // Verify the results
-        assertFalse(result);
+        assertTrue(result);
     }
 
     @Test

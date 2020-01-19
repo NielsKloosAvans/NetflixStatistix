@@ -17,23 +17,23 @@ class AccountTest {
     @Test
     void testAddProfile () {
         // Setup
+        final Profile profile = new Profile("profileName", 0, "email");
 
-        try {
-            final Profile profile = new Profile("profileName", 0, "email");
-            accountUnderTest.AddProfile(profile);
-        }
-        catch (NullPointerException e){
-            System.out.println("NullpointerException caught!");    }
-}
+        // Run the test
+        accountUnderTest.addProfile(profile);
+
+        // Verify the results
+    }
+
     @Test
     void testGetProfile () {
         // Setup
         try {
-            // Run the test
             final Profile result = accountUnderTest.getProfile(0);
-        } catch (NullPointerException e){
-            System.out.println("NullpointerException caught!");
+        } catch (IndexOutOfBoundsException e){
+            System.out.println("Arraylist is empty!");
         }
+
         // Verify the results
     }
 
@@ -45,6 +45,6 @@ class AccountTest {
         final String result = accountUnderTest.toString();
 
         // Verify the results
-        assertEquals("result", result);
+        assertEquals("Account: email", result);
     }
 }

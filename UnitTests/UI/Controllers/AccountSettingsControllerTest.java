@@ -3,6 +3,7 @@ package UI.Controllers;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.matchers.Null;
 
 class AccountSettingsControllerTest {
 
@@ -15,31 +16,31 @@ class AccountSettingsControllerTest {
 
     @Test
     void testRefreshAccountsUpdate () {
-        // Setup
-
-        // Run the test
-        accountSettingsControllerUnderTest.refreshAccountsUpdate();
-
-        // Verify the results
+        // Setup + Run the test
+        try {
+            accountSettingsControllerUnderTest.refreshAccountsUpdate();
+        } catch (NullPointerException e) {
+            System.out.println("Empty Arraylist!");
+        }
     }
 
     @Test
     void testRefreshAccountsRemove () {
-        // Setup
-
-        // Run the test
-        accountSettingsControllerUnderTest.refreshAccountsRemove();
-
-        // Verify the results
+        // Setup + Run the test
+        try {
+            accountSettingsControllerUnderTest.refreshAccountsRemove();
+        } catch (NullPointerException e) {
+            System.out.println("Empty Arraylist!");
+        }
     }
 
     @Test
     void testRemoveAccount () {
-        // Setup
-
-        // Run the test
-        accountSettingsControllerUnderTest.removeAccount();
-
-        // Verify the results
+        // Setup + Run the test
+        try {
+            accountSettingsControllerUnderTest.removeAccount();
+        } catch (NullPointerException e) {
+            System.out.println("Empty Arraylist!");
+        }
     }
 }

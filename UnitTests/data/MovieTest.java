@@ -11,7 +11,7 @@ class MovieTest {
 
     @BeforeEach
     void setUp () {
-        movieUnderTest = new Movie("title", "genre", "language", 0, 0);
+        movieUnderTest = new Movie("title", "genre", "language", 0, 0, 0);
     }
 
     @Test
@@ -22,6 +22,6 @@ class MovieTest {
         final String result = movieUnderTest.toString();
 
         // Verify the results
-        assertEquals("result", result);
+        assertEquals("Movie: title\nDuration 0", result);
     }
 }

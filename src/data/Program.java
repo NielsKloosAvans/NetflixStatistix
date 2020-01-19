@@ -7,13 +7,13 @@ public abstract class Program {
     private int length;
     private int ageRating;
 
+
     public Program(String title, String genre, String language, int length, int ageRating) {
         this.title = title;
         this.genre = genre;
         this.language = language;
         this.length = length;
         this.ageRating = ageRating;
-
     }
 
     public String getTitle() {

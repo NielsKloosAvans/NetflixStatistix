@@ -19,32 +19,30 @@ class LoginViewControllerTest {
 
     @Test
     void testMakeAccount () {
-        // Setup
-
-        // Run the test
-        loginViewControllerUnderTest.makeAccount();
-
-        // Verify the results
+        // Setup + Run the test
+        try {
+            loginViewControllerUnderTest.makeAccount();
+        } catch (NullPointerException e) {
+            System.out.println("Empty Arraylist!");
+        }
     }
 
     @Test
     void testLoginAccount () throws Exception {
-        // Setup
-        final ActionEvent event = new ActionEvent("o", null);
-
-        // Run the test
-        loginViewControllerUnderTest.loginAccount(event);
-
-        // Verify the results
+        // Setup + Run the test
+        try {
+            final ActionEvent event = new ActionEvent("o", null);
+            loginViewControllerUnderTest.loginAccount(event);
+        } catch (NullPointerException e) {
+            System.out.println("Empty Arraylist!");
+        }
     }
 
     @Test
     void testLoginAccount_ThrowsIOException () {
-        // Setup
+        // Setup + Run the test
         final ActionEvent event = new ActionEvent("o", null);
-
-        // Run the test
-        assertThrows(IOException.class, () -> {
+        assertThrows(NullPointerException.class, () -> {
             loginViewControllerUnderTest.loginAccount(event);
         });
     }

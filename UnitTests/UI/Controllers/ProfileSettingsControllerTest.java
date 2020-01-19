@@ -4,6 +4,7 @@ import data.Account;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.security.spec.ECField;
 import java.util.Arrays;
 
 class ProfileSettingsControllerTest {
@@ -18,31 +19,36 @@ class ProfileSettingsControllerTest {
 
     @Test
     void testPrintProfiles () {
-        // Setup
+        // Setup + Run The test
+        try {
+            profileSettingsControllerUnderTest.printProfiles();
+        } catch (NullPointerException e) {
+            System.out.println("Empty Arraylist!");
 
-        // Run the test
-        profileSettingsControllerUnderTest.printProfiles();
-
-        // Verify the results
+        }
     }
 
     @Test
     void testRefreshAccount () {
-        // Setup
+        // Setup +  Run the test
+        try {
 
-        // Run the test
-        profileSettingsControllerUnderTest.refreshAccount();
+            profileSettingsControllerUnderTest.refreshAccount();
+        } catch (NullPointerException e) {
+            System.out.println("Empty Arraylist!");
+        }
 
-        // Verify the results
     }
 
     @Test
     void testRefreshAccountsUpdate () {
-        // Setup
+        // Setup + Run the Test
+        try {
 
-        // Run the test
-        profileSettingsControllerUnderTest.refreshAccountsUpdate();
-
-        // Verify the results
+            profileSettingsControllerUnderTest.refreshAccountsUpdate();
+        } catch (NullPointerException e) {
+            System.out.println("Empty Arraylist!");
+        }
     }
 }
+

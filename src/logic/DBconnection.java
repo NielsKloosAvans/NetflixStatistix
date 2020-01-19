@@ -20,25 +20,6 @@ public class DBconnection {
         statement = connection.createStatement();
     }
 
-    public void CloseConnection() throws SQLException {
-        statement.close();
-        connection.close();
-    }
-
-    public ResultSet readQuery(String SQL) throws Exception {
-        return this.statement.executeQuery(SQL);
-    }
-
-
-    public void queryExecute(String SQL) throws Exception {
-        this.statement.execute(SQL);
-    }
-
-    public int updateQuery(String SQL) throws Exception {
-        return this.statement.executeUpdate(SQL);
-    }
-
-
     public Statement getStatement() {
         return statement;
     }

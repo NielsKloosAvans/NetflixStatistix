@@ -119,16 +119,12 @@ public class AccountQueries {
         ArrayList<Account> accountEmail = new ArrayList<>();
         try{
             Connection con = DriverManager.getConnection(database.getConnectionUrl());
-            PreparedStatement statement = con.prepareStatement("SELECT * FROM ACCOUNT");
+            PreparedStatement statement = con.prepareStatement("SELECT Email FROM ACCOUNT");
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()){
                 String email = rs.getString("Email");
-                String name = rs.getString("Name");
-                String password = rs.getString("Password");
-                String address = rs.getString("Address");
-                String city = rs.getString("City");
-                accountEmail.add(new Account(email,name,password,address,city));
+                accountEmail.add(new Account(email));
             }
 
             con.close();

@@ -13,7 +13,7 @@ public class LongestMovieUnder16 {
         String language = "";
         int length = 0;
         int ageRating = 0;
-        int durationInMinutes = 0;
+        int programId = 0;
 
         try {
             Connection con = DriverManager.getConnection(database.getConnectionUrl());
@@ -26,13 +26,13 @@ public class LongestMovieUnder16 {
                 language = rs.getString("Language");
                 length = rs.getInt("Length");
                 ageRating = rs.getInt("AgeRating");
-                durationInMinutes = rs.getInt("DurationInMinutes");
+                programId = rs.getInt("ProgramId");
             }
 
             con.close();
         } catch (SQLException e) {
             System.out.println("Error while getting movie.");
         }
-        return new Movie(movie, genre, language, length, ageRating);
+        return new Movie(movie, genre, language, length, ageRating, programId);
     }
 }

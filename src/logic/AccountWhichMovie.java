@@ -1,6 +1,7 @@
 package logic;
 
 import data.Movie;
+import data.Program;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -26,8 +27,8 @@ public class AccountWhichMovie {
                 String language = rs.getString("Language");
                 int length = rs.getInt("Length");
                 int ageRating = rs.getInt("AgeRating");
-                int durationInMinutes = rs.getInt("DurationInMinutes");
-                movies.add(new Movie(movieName, genre, language, length, ageRating));
+                int programId = rs.getInt("ProgramId");
+                movies.add(new Movie(movieName, genre, language, length, ageRating, programId));
             }
 
             con.close();
