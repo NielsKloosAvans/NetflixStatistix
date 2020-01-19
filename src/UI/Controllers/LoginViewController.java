@@ -40,13 +40,14 @@ public class LoginViewController {
 
     public void makeAccount() {
         AccountQueries account = new AccountQueries();
-        boolean succeeded = account.createAccount(txtRegisterName.getText(),txtRegisterEmail.getText(),txtRegisterPassword.getText(),txtRegisterAddress.getText(),txtRegisterCity.getText());
+        if (!txtRegisterEmail.getText().isEmpty() && !txtRegisterName.getText().isEmpty() && !txtRegisterPassword.getText().isEmpty() && !txtRegisterAddress.getText().isEmpty() && txtRegisterCity.getText().isEmpty()) {
+            boolean succeeded = account.createAccount(txtRegisterName.getText(), txtRegisterEmail.getText(), txtRegisterPassword.getText(), txtRegisterAddress.getText(), txtRegisterCity.getText());
+            if (succeeded) {
+                new Alert(Alert.AlertType.INFORMATION, "Account created.").show();
 
-        if(succeeded){
-            new Alert(Alert.AlertType.INFORMATION,"Account created.").show();
-
-        } else {
-            new Alert(Alert.AlertType.ERROR,"Failed to create an account.").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Failed to create an account.").show();
+            }
         }
 
     }

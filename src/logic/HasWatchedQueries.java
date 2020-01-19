@@ -50,18 +50,40 @@ public class HasWatchedQueries {
         return result;
     }
 
-    public boolean updateHasWatched(String profileName, String email, int minutesWatched, int programId) {
+    public boolean updateHasWatchedMovie(String profileName, String email, int minutesWatched, int programId) {
         boolean result = false;
 
         try {
             Connection con = DriverManager.getConnection(database.getConnectionUrl());
-            PreparedStatement statement = con.prepareStatement("UPDATE HasWatched SET ProfileName = ?, Email = ?, MinutesWatched = ?, ProgramId = ? WHERE Email = ? AND ProfileName = ?;");
-            statement.setString(1, profileName);
+            PreparedStatement statement = con.prepareStatement("UPDATE HasWatched SET MinutesWatched = ? WHERE Email = ? AND ProfileName = ? AND  ProgramId = ?;");
+            statement.setInt(1, minutesWatched);
             statement.setString(2, email);
-            statement.setInt(3, minutesWatched);
+            statement.setString(3, profileName);
             statement.setInt(4, programId);
             statement.execute();
             result = true;
+            new Alert(Alert.AlertType.CONFIRMATION,"Successfully updated watched movie for profile: " + profileName).show();
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error while updating has watched.");
+        }
+        return result;
+    }
+
+
+    public boolean updateHasWatchedEpisode(String profileName, String email, int minutesWatched, int programId) {
+        boolean result = false;
+
+        try {
+            Connection con = DriverManager.getConnection(database.getConnectionUrl());
+            PreparedStatement statement = con.prepareStatement("UPDATE HasWatched SET MinutesWatched = ? WHERE Email = ? AND ProfileName = ? AND ProgramId = ?;");
+            statement.setInt(1, minutesWatched);
+            statement.setString(2, email);
+            statement.setString(3, profileName);
+            statement.setInt(4, programId);
+            statement.execute();
+            result = true;
+            new Alert(Alert.AlertType.CONFIRMATION,"Successfully updated watched episodes for profile: " + profileName).show();
             con.close();
         } catch (SQLException e) {
             System.out.println("Error while updating has watched.");

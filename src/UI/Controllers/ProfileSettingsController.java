@@ -23,13 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileSettingsController {
-
-    @FXML
-    public ComboBox<Profile> cbWatchedProfile;
-
-    @FXML
-    public ComboBox<Profile> cbWatchedProfile1;
-
     @FXML
     public ComboBox<Profile> cbUpdateProfile;
 
@@ -40,19 +33,7 @@ public class ProfileSettingsController {
     public List <Movie> movies;
 
     @FXML
-    public ComboBox<Movie> cbListMovies;
-
-    @FXML
-    public ComboBox<Episode> cbListEpisodes;
-
-    @FXML
     public ComboBox<Account> cbCreateProfile;
-
-    @FXML
-    public ComboBox<Account> cbWatchedAccount;
-
-    @FXML
-    public ComboBox<Account> cbWatchedAccount1;
 
     @FXML
     public ComboBox<Account> cbUpdateProfileAccount;
@@ -71,9 +52,6 @@ public class ProfileSettingsController {
 
     @FXML
     private TextField createProfileName;
-
-    @FXML
-    private TextField minutesWatched;
 
     @FXML
     private TextField createProfileAge;
@@ -107,12 +85,6 @@ public class ProfileSettingsController {
                 new Alert(Alert.AlertType.ERROR,"An error occurred while creating a profile.").show();
             }
         }
-    }
-
-    @FXML
-    public void printProfiles(){
-        ProfileQueries profileQueries = new ProfileQueries();
-        System.out.println(profileQueries.getAll());
     }
 
     @FXML
@@ -202,6 +174,22 @@ public class ProfileSettingsController {
         updateProfileAge.setText("");
     }
 
+    //ADD WATCHED MOVIE
+    @FXML
+    public ComboBox<Profile> cbWatchedProfile;
+
+    @FXML
+    public ComboBox<Account> cbWatchedAccount;
+
+    @FXML
+    public ComboBox<Movie> cbListMovies;
+
+    @FXML
+    private TextField minutesWatched;
+
+
+
+    //ADD WATCHED MOVIE METHODS
     @FXML
     public void refreshAccountsWatched() {
         AccountQueries account = new AccountQueries();
@@ -218,6 +206,41 @@ public class ProfileSettingsController {
         cbWatchedProfile.setItems(cbList);
         minutesWatched.setText("");
     }
+
+    @FXML
+    public void refreshMovies(){
+        HasWatchedQueries hasWatchedQueries = new HasWatchedQueries();
+        movies = hasWatchedQueries.moviesGetAll();
+        ObservableList cbList = FXCollections.observableList(movies);
+        cbListMovies.setItems(cbList);
+    }
+
+    @FXML
+    public void createHasWatchedMovie(){
+        HasWatchedQueries hasWatchedQueries = new HasWatchedQueries();
+        Profile profile = cbWatchedProfile.getSelectionModel().getSelectedItem();
+        Account account = cbWatchedAccount.getSelectionModel().getSelectedItem();
+        Movie movie = cbListMovies.getSelectionModel().getSelectedItem();
+        int minutes = Integer.parseInt(minutesWatched.getText());
+        int programId = movie.getProgramId();
+
+        hasWatchedQueries.createHasWatchedMovie(profile.getProfileName(),account.getEmail(),minutes, programId);
+    }
+
+    //ADD WATCHED EPISODE
+    @FXML
+    public ComboBox<Profile> cbWatchedProfile1;
+
+    @FXML
+    public ComboBox<Account> cbWatchedAccount1;
+
+    @FXML
+    private TextField minutesWatched1;
+
+    @FXML
+    public ComboBox<Episode> cbListEpisodes;
+
+    //ADD WATCH EPISODE METHODS
 
     @FXML
     public void refreshAccountsWatched1() {
@@ -237,14 +260,6 @@ public class ProfileSettingsController {
     }
 
     @FXML
-    public void refreshMovies(){
-        HasWatchedQueries hasWatchedQueries = new HasWatchedQueries();
-        movies = hasWatchedQueries.moviesGetAll();
-        ObservableList cbList = FXCollections.observableList(movies);
-        cbListMovies.setItems(cbList);
-    }
-
-    @FXML
     public void refreshEpisodes(){
         HasWatchedQueries hasWatchedQueries = new HasWatchedQueries();
         episodes = hasWatchedQueries.episodesGetAll();
@@ -253,28 +268,127 @@ public class ProfileSettingsController {
     }
 
     @FXML
-    public void createHasWatchedMovie(){
-        HasWatchedQueries hasWatchedQueries = new HasWatchedQueries();
-        Profile profile = cbWatchedProfile.getSelectionModel().getSelectedItem();
-        Account account = cbWatchedAccount.getSelectionModel().getSelectedItem();
-        Movie movie = cbListMovies.getSelectionModel().getSelectedItem();
-        int minutes = Integer.parseInt(minutesWatched.getText());
-        int programId = movie.getProgramId();
-
-        hasWatchedQueries.createHasWatchedMovie(profile.getProfileName(),account.getEmail(),minutes, programId);
-    }
-
-    @FXML
     public void createHasWatchedEpisode(){
         HasWatchedQueries hasWatchedQueries = new HasWatchedQueries();
         Profile profile = cbWatchedProfile1.getSelectionModel().getSelectedItem();
         Account account = cbWatchedAccount1.getSelectionModel().getSelectedItem();
         Episode episode = cbListEpisodes.getSelectionModel().getSelectedItem();
-        int minutes = Integer.parseInt(minutesWatched.getText());
+        int minutes = Integer.parseInt(minutesWatched1.getText());
         int programId = episode.getProgramId();
 
         hasWatchedQueries.createHasWatchedEpisode(profile.getProfileName(),account.getEmail(),minutes, programId);
     }
+
+
+    //UPDATE WATCHED MOVIE
+    @FXML
+    public ComboBox<Profile> cbWatchedProfile2;
+
+    @FXML
+    public ComboBox<Account> cbWatchedAccount2;
+
+    @FXML
+    public ComboBox<Movie> cbListMovies1;
+
+    @FXML
+    private TextField minutesWatched2;
+
+    //UPDATE WATCHED MOVIE METHODS
+    @FXML
+    public void refreshAccountsWatched2() {
+        AccountQueries account = new AccountQueries();
+        accounts = account.getAll();
+        ObservableList cbList = FXCollections.observableList(accounts);
+        cbWatchedAccount2.setItems(cbList);
+    }
+
+    @FXML
+    public void refreshProfileWatched2() {
+        ProfileQueries profileQueries = new ProfileQueries();
+        profiles = profileQueries.getProfilesFromAccount(cbWatchedAccount2.getSelectionModel().getSelectedItem());
+        ObservableList cbList = FXCollections.observableList(profiles);
+        cbWatchedProfile2.setItems(cbList);
+        minutesWatched.setText("");
+    }
+
+    @FXML
+    public void refreshMovies1(){
+        HasWatchedQueries hasWatchedQueries = new HasWatchedQueries();
+        movies = hasWatchedQueries.moviesGetAll();
+        ObservableList cbList = FXCollections.observableList(movies);
+        cbListMovies1.setItems(cbList);
+    }
+
+    @FXML
+    public void updateHasWatchedMovie(){
+        HasWatchedQueries hasWatchedQueries = new HasWatchedQueries();
+        Profile profile = cbWatchedProfile2.getSelectionModel().getSelectedItem();
+        Account account = cbWatchedAccount2.getSelectionModel().getSelectedItem();
+        Movie movie = cbListMovies1.getSelectionModel().getSelectedItem();
+        int minutes = Integer.parseInt(minutesWatched2.getText());
+        int programId = movie.getProgramId();
+
+        hasWatchedQueries.updateHasWatchedMovie(profile.getProfileName(),account.getEmail(),minutes, programId);
+    }
+
+
+
+
+
+    //UPDATE WATCHED EPISODE
+    @FXML
+    public ComboBox<Profile> cbWatchedProfile3;
+
+    @FXML
+    public ComboBox<Account> cbWatchedAccount3;
+
+    @FXML
+    public ComboBox<Episode> cbListEpisodes1;
+
+    @FXML
+    private TextField minutesWatched3;
+
+    //UPDATE WATCHED EPISODE METHODS
+    @FXML
+    public void refreshAccountsWatched3() {
+        AccountQueries account = new AccountQueries();
+        accounts = account.getAll();
+        ObservableList cbList = FXCollections.observableList(accounts);
+        cbWatchedAccount3.setItems(cbList);
+    }
+
+    @FXML
+    public void refreshProfileWatched3() {
+        ProfileQueries profileQueries = new ProfileQueries();
+        profiles = profileQueries.getProfilesFromAccount(cbWatchedAccount3.getSelectionModel().getSelectedItem());
+        ObservableList cbList = FXCollections.observableList(profiles);
+        cbWatchedProfile3.setItems(cbList);
+        minutesWatched.setText("");
+    }
+
+    @FXML
+    public void refreshEpisodes1(){
+        HasWatchedQueries hasWatchedQueries = new HasWatchedQueries();
+        episodes = hasWatchedQueries.episodesGetAll();
+        ObservableList cbList = FXCollections.observableList(episodes);
+        cbListEpisodes1.setItems(cbList);
+    }
+
+    @FXML
+    public void updateHasWatchedEpisode(){
+        HasWatchedQueries hasWatchedQueries = new HasWatchedQueries();
+        Profile profile = cbWatchedProfile3.getSelectionModel().getSelectedItem();
+        Account account = cbWatchedAccount3.getSelectionModel().getSelectedItem();
+        Episode episode = cbListEpisodes1.getSelectionModel().getSelectedItem();
+        int minutes = Integer.parseInt(minutesWatched3.getText());
+        int programId = episode.getProgramId();
+
+        hasWatchedQueries.updateHasWatchedEpisode(profile.getProfileName(),account.getEmail(), minutes, programId);
+    }
+
+
+
+
 
 
 }
