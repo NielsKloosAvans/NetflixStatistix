@@ -18,17 +18,6 @@ class ProfileSettingsControllerTest {
     }
 
     @Test
-    void testPrintProfiles () {
-        // Setup + Run The test
-        try {
-            profileSettingsControllerUnderTest.printProfiles();
-        } catch (NullPointerException e) {
-            System.out.println("Empty Arraylist!");
-
-        }
-    }
-
-    @Test
     void testRefreshAccount () {
         // Setup +  Run the test
         try {

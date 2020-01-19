@@ -15,6 +15,6 @@ public class Movie extends Program {
     @Override
     public String toString() {
         return "Movie: " + getTitle() + "\n" +
-                "Duration " + getLength();
+                "Duration: " + getLength();
     }
 }

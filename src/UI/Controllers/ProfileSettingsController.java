@@ -14,7 +14,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import logic.AccountQueries;
-import logic.DatabaseQueries;
 import logic.HasWatchedQueries;
 import logic.ProfileQueries;
 

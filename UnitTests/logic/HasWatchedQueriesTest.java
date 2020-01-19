@@ -47,17 +47,6 @@ class HasWatchedQueriesTest {
         }
     }
 
-    @Test
-    void testUpdateHasWatched () {
-        // Setup
-        when(hasWatchedQueriesUnderTest.database.getConnectionUrl()).thenReturn("result");
-
-        // Run the test
-        final boolean result = hasWatchedQueriesUnderTest.updateHasWatched("profileName", "email", 0, 0);
-
-        // Verify the results
-        assertFalse(result);
-    }
 
     @Test
     void testRemoveHasWatched () {

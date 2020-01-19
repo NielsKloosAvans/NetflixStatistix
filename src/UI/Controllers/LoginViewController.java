@@ -15,6 +15,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class LoginViewController {
     @FXML
@@ -38,9 +39,22 @@ public class LoginViewController {
     @FXML
     private TextField txtLoginPassword;
 
+    public static boolean isValid(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
+    }
+
     public void makeAccount() {
         AccountQueries account = new AccountQueries();
-        if (!txtRegisterEmail.getText().isEmpty() && !txtRegisterName.getText().isEmpty() && !txtRegisterPassword.getText().isEmpty() && !txtRegisterAddress.getText().isEmpty() && txtRegisterCity.getText().isEmpty()) {
+        if (!txtRegisterEmail.getText().isEmpty() && !txtRegisterName.getText().isEmpty() && !txtRegisterPassword.getText().isEmpty() && !txtRegisterAddress.getText().isEmpty() && !txtRegisterCity.getText().isEmpty() &&isValid(txtRegisterEmail.getText())) {
+
             boolean succeeded = account.createAccount(txtRegisterName.getText(), txtRegisterEmail.getText(), txtRegisterPassword.getText(), txtRegisterAddress.getText(), txtRegisterCity.getText());
             if (succeeded) {
                 new Alert(Alert.AlertType.INFORMATION, "Account created.").show();
@@ -48,6 +62,10 @@ public class LoginViewController {
             } else {
                 new Alert(Alert.AlertType.ERROR, "Failed to create an account.").show();
             }
+
+
+        } else if (!isValid(txtRegisterEmail.getText())){
+            new Alert(Alert.AlertType.ERROR, "Failed to create an account.").show();
         }
 
     }
