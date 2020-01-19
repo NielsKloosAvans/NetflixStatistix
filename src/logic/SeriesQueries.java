@@ -7,24 +7,23 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SerieQueries {
+public class SeriesQueries {
     private DBconnection database = new DBconnection();
 
-    /*(public List<Serie> getAll(){
-        ArrayList<Serie> series = new ArrayList<>();
+    public List<Series> getAll(){
+        ArrayList<Series> series = new ArrayList<>();
         try{
             Connection con = DriverManager.getConnection(database.getConnectionUrl());
             PreparedStatement statement = con.prepareStatement("SELECT * FROM Series");
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()){
-                String seriesid = rs.getString("SeriesId");
-                String name = rs.getString("SeriesName");
-                int agerating = rs.getInt("AgeRating");
+                int seriesId = rs.getInt("SeriesId");
+                String seriesName = rs.getString("SeriesName");
+                int ageRating = rs.getInt("AgeRating");
                 String language = rs.getString("Language");
                 String genre = rs.getString("Genre");
-                String youmaylike = rs.getString("YouMayLike");
-                series.add(new Serie(seriesid,name,agerating,language,genre,youmaylike));
+                series.add(new Series(seriesName, genre, language, ageRating, seriesId));
             }
 
             con.close();
@@ -33,7 +32,7 @@ public class SerieQueries {
         }
         return series;
     }
-    */
+
 
 
 }

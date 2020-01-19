@@ -4,20 +4,37 @@ public class Episode {
     private String episodeTitle;
     private int episodeNumber;
     private int seasonNumber;
-    private int durationInMinutes;
-    private int minutesWatched;
+    private int length;
     private int programId;
+    private int percentageWatched;
+    private String seriesName;
 
-    public Episode(String episodeTitle, int episodeNumber, int seasonNumber, int durationInMinutes, int programId){
-        if (episodeNumber <= 0 || seasonNumber <= 0 || durationInMinutes <= 0 ){
+
+    public Episode(String episodeTitle, int episodeNumber, int seasonNumber, int durationInMinutes, int programId) {
+        if (episodeNumber <= 0 || seasonNumber <= 0 || durationInMinutes <= 0) {
             throw new IllegalArgumentException();
         }
         this.episodeTitle = episodeTitle;
         this.episodeNumber = episodeNumber;
         this.seasonNumber = seasonNumber;
-        this.durationInMinutes = durationInMinutes;
+        this.length = durationInMinutes;
         this.programId = programId;
-        this.minutesWatched = minutesWatched;
+    }
+
+    public Episode(String episodeTitle, int percentageWatched, int length) {
+        this.episodeTitle = episodeTitle;
+        this.percentageWatched = percentageWatched;
+        this.length = length;
+    }
+
+    public Episode(String seriesName, String episodeName, int percentageWatched) {
+        this.seriesName = seriesName;
+        this.episodeTitle = episodeName;
+        this.percentageWatched = percentageWatched;
+    }
+
+    public int getPercentageWatched() {
+        return percentageWatched;
     }
 
     public String getEpisodeTitle() {
@@ -33,12 +50,9 @@ public class Episode {
     }
 
     public int getDurationInMinutes() {
-        return durationInMinutes;
+        return length;
     }
 
-    public int getPercentageWatched() {
-        return minutesWatched;
-    }
 
     public int getProgramId() {
         return programId;
@@ -47,7 +61,7 @@ public class Episode {
     @Override
     public String toString() {
         return "Episode Name: " + episodeTitle + "\n" +
-                "Duration: " + durationInMinutes;
+                "Duration: " + length + " minutes\n";
     }
 }
 

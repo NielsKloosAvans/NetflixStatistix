@@ -4,9 +4,11 @@ public class Movie extends Program {
     private int programId;
 
     public Movie(String title, String genre, String language, int length, int ageRating, int programId) {
-        super(title, genre, language, length, ageRating);
+        super(title, genre, language, ageRating);
         this.programId = programId;
     }
+
+
 
     public int getProgramId() {
         return programId;
@@ -14,7 +16,6 @@ public class Movie extends Program {
 
     @Override
     public String toString() {
-        return "Movie: " + getTitle() + "\n" +
-                "Duration: " + getLength();
+        return "Movie: " + getTitle() + "\n";
     }
 }

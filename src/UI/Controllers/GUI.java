@@ -12,7 +12,7 @@ public class GUI extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("LoginView.fxml"));
-        primaryStage.setTitle("Julius van Leeuwen - 2160926, Niels Kloos - 2160926 Twan Roelofsen - 2156992");
+        primaryStage.setTitle("Netflix Statistix: Julius van Leeuwen - 2160926, Niels Kloos - 2159340 Twan Roelofsen - 2156992");
         primaryStage.setScene(new Scene(root, 1266, 710));
         primaryStage.show();
 

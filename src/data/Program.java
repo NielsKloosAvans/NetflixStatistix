@@ -4,15 +4,13 @@ public abstract class Program {
     private String title;
     private String genre;
     private String language;
-    private int length;
     private int ageRating;
 
 
-    public Program(String title, String genre, String language, int length, int ageRating) {
+    public Program(String title, String genre, String language, int ageRating) {
         this.title = title;
         this.genre = genre;
         this.language = language;
-        this.length = length;
         this.ageRating = ageRating;
     }
 
@@ -28,9 +26,6 @@ public abstract class Program {
         return language;
     }
 
-    public int getLength() {
-        return length;
-    }
 
     public int getAgeRating() {
         return ageRating;

@@ -20,7 +20,6 @@
                </image>
             </ImageView>
             <Button layoutX="1046.0" layoutY="55.0" mnemonicParsing="false" onAction="#showAccountOverview" prefHeight="45.0" prefWidth="139.0" text="Account View" />
-            <Text fill="WHITE" layoutX="98.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AccountSettings" />
             <Button layoutX="546.0" layoutY="579.0" mnemonicParsing="false" onAction="#removeAccount" prefHeight="45.0" prefWidth="174.0" text="Remove this account" />
             <Button layoutX="546.0" layoutY="396.0" mnemonicParsing="false" onAction="#updateAccount" prefHeight="45.0" prefWidth="174.0" text="Update" />
             <TextField fx:id="ChangeName" layoutX="509.0" layoutY="242.0" prefHeight="27.0" prefWidth="253.0" promptText="Name" />

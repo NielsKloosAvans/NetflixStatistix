@@ -17,16 +17,18 @@ public class LongestMovieUnder16 {
 
         try {
             Connection con = DriverManager.getConnection(database.getConnectionUrl());
-            PreparedStatement statement = con.prepareStatement("SELECT MAX(Movie.Length) as 'Longest movie' FROM MOVIE WHERE AgeRating < 16");
+            PreparedStatement statement = con.prepareStatement("SELECT MAX(Movie.Length) as 'LongestMovie'," +
+                    "MovieName, Genre, ProgramId, AgeRating, [Language] FROM MOVIE WHERE AgeRating < 16\n" +
+                    "GROUP BY Genre, ProgramId, AgeRating, [Language], MovieName");
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
-                movie = rs.getString("Movie");
+                length = rs.getInt("LongestMovie");
+                movie = rs.getString("MovieName");
                 genre = rs.getString("Genre");
-                language = rs.getString("Language");
-                length = rs.getInt("Length");
-                ageRating = rs.getInt("AgeRating");
                 programId = rs.getInt("ProgramId");
+                ageRating = rs.getInt("AgeRating");
+                language = rs.getString("Language");
             }
 
             con.close();

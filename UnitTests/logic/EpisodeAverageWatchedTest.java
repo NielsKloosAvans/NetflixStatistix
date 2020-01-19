@@ -19,14 +19,14 @@ class EpisodeAverageWatchedTest {
         episodeAverageWatchedUnderTest.database = mock(DBconnection.class);
     }
 
-    @Test
-    void testEpisodeAverageWatched () {
-        // Setup
-        when(episodeAverageWatchedUnderTest.database.getConnectionUrl()).thenReturn("result");
-
-        // Run the test
-        final List<Episode> result = episodeAverageWatchedUnderTest.episodeAverageWatched(0, "email");
-
-        // Verify the results
-    }
+//    @Test
+//    void testepisodeGetPercentage () {
+//        // Setup
+//        when(episodeAverageWatchedUnderTest.database.getConnectionUrl()).thenReturn("result");
+//
+//        // Run the test
+//        final List<Episode> result = episodeAverageWatchedUnderTest.episodeGetPercentage(0, "email");
+//
+//        // Verify the results
+//    }
 }

@@ -1,19 +1,20 @@
 package data;
 
 public class Series extends Program {
-    private int durationInMinutes;
     private int numberOfSeasons;
     private String youMayLike;
+    private int seriesId;
 
-    public Series(String title, String genre, String language, int length, int ageRating, int durationInMinutes, int numberOfSeasons, String youMayLike) {
-        super(title, genre, language, length, ageRating);
-        this.durationInMinutes = durationInMinutes;
+    public Series(int seriesId, String title, String genre, String language, int ageRating, int numberOfSeasons, String youMayLike) {
+        super(title, genre, language, ageRating);
         this.numberOfSeasons = numberOfSeasons;
         this.youMayLike = youMayLike;
+        this.seriesId = seriesId;
     }
 
-    public int getDurationInMinutes() {
-        return durationInMinutes;
+    public Series(String title, String genre, String language, int ageRating, int seriesId) {
+        super(title, genre, language, ageRating);
+        this.seriesId = seriesId;
     }
 
     public int getNumberOfSeasons() {
@@ -22,6 +23,10 @@ public class Series extends Program {
 
     public String getYouMayLike() {
         return youMayLike;
+    }
+
+    public int getSeriesId() {
+        return seriesId;
     }
 
     @Override

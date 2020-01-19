@@ -11,7 +11,7 @@ class ProgramTest {
 
     @BeforeEach
     void setUp () {
-        programUnderTest = new Program("title", "genre", "language", 0, 0) {
+        programUnderTest = new Program("title", "genre", "language",  0) {
         };
     }
 
