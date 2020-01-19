@@ -6,29 +6,27 @@ import java.util.ArrayList;
 
 public class Account {
     private String email;
-    private String name;                                                                    //Create a new String called name.
-    private String password;                                                                //Create a new String called password.
+    private String name;                                                                                    //Create a new String called name.
+    private String password;                                                                                //Create a new String called password.
     private String address;
-    private String city;                                                                     //Create a new String called password.
-    private ArrayList<Profile> profiles;
+    private String city;                                                                                    //Create a new String called password.
+    public ArrayList<Profile> profiles;
 
-    public Account(String email, String name, String password, String address, String city) {             //Constructor for the Account class, requires an Arraylist of profiles, a name (String) and an address (Address object)
+    public Account(String email, String name, String password, String address, String city) {               //Constructor for the Account class, requires an Arraylist of profiles, a name (String) and an address (Address object)
         //No more than five profiles can be linked to an account
         this.email = email;
         this.name = name;
         this.password = password;
         this.address = address;
         this.city = city;
-
     }
 
-    public ArrayList<Profile> addProfile(Profile profile){
-        if (profiles.size() < 5) {
-            profiles.add(profile);
-        } else {
-            new Alert(Alert.AlertType.ERROR,"Your account already has 5 profiles!").show();
-        }
-        return profiles;
+    public Account(String email){
+        this.email = email;
+    }
+
+    public void AddProfile(Profile profile){
+        this.profiles.add(profile);
     }
 
     public ArrayList<Profile> getProfiles() {

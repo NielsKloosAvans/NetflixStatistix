@@ -16,11 +16,10 @@
                         <Image url="@../images/Netflix.png" />
                     </image>
                 </ImageView>
-            <Button layoutX="77.0" layoutY="221.0" mnemonicParsing="false" onAction="#showProfileSettings" prefHeight="45.0" prefWidth="139.0" text="Profile Settings" />
-            <Button layoutX="77.0" layoutY="603.0" mnemonicParsing="false" onAction="#showAccountSettings" prefHeight="45.0" prefWidth="139.0" text="Account Settings" />
-            <Button layoutX="544.0" layoutY="325.0" mnemonicParsing="false" onAction="#showProfileQueries" prefHeight="45.0" prefWidth="182.0" text="Show watched movies" />
-            <Button layoutX="587.0" layoutY="438.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="92.0" text="Button" />
-            <Button layoutX="1094.0" layoutY="29.0" mnemonicParsing="false" onAction="#showLogin" prefHeight="45.0" prefWidth="92.0" text="Back" />
+            <Button layoutX="503.0" layoutY="146.0" mnemonicParsing="false" onAction="#showProfileSettings" prefHeight="37.0" prefWidth="265.0" text="Profile Settings" />
+            <Button layoutX="503.0" layoutY="208.0" mnemonicParsing="false" onAction="#showAccountSettings" prefHeight="37.0" prefWidth="265.0" text="Account Settings" />
+            <Button layoutX="503.0" layoutY="268.0" mnemonicParsing="false" onAction="#showProfileQueries" prefHeight="37.0" prefWidth="265.0" text="Profile query's" />
+            <Button layoutX="1079.0" layoutY="42.0" mnemonicParsing="false" onAction="#showLogin" prefHeight="37.0" prefWidth="107.0" text="Back to login" />
             <Text fill="WHITE" layoutX="107.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accountview" />
             <Text fill="WHITE" layoutX="116.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in" />
             </children>

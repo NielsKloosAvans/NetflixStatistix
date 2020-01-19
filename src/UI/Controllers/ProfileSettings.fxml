@@ -29,18 +29,19 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <Button layoutX="149.0" layoutY="415.0" mnemonicParsing="false" onAction="#createProfile" prefHeight="27.0" prefWidth="129.0" text="Create Profile" />
+            <Button layoutX="149.0" layoutY="415.0" mnemonicParsing="false" onAction="#addProfile" prefHeight="27.0" prefWidth="129.0" text="Create Profile" />
             <Button layoutX="569.0" layoutY="415.0" mnemonicParsing="false" onAction="#updateProfile" prefHeight="27.0" prefWidth="129.0" text="Update profile" />
             <Button layoutX="989.0" layoutY="415.0" mnemonicParsing="false" onAction="#removeProfile" prefHeight="27.0" prefWidth="129.0" text="Remove profile" />
-            <ComboBox fx:id="cbCreateProfile" layoutX="130.0" layoutY="306.0" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
+            <ComboBox fx:id="cbUpdate" layoutX="130.0" layoutY="307.0" onMouseClicked="#refreshAccountsUpdate" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
             <TextField fx:id="createProfileName" layoutX="130.0" layoutY="342.0" promptText="Profile Name" />
             <TextField fx:id="createProfileAge" layoutX="130.0" layoutY="378.0" promptText="Age" />
             <ComboBox fx:id="cbRemoveProfile" layoutX="970.0" layoutY="378.0" prefHeight="27.0" prefWidth="167.0" promptText="Profile" />
-            <Button layoutX="130.0" layoutY="271.0" mnemonicParsing="false" onAction="#refreshAccount" prefHeight="27.0" prefWidth="167.0" text="Refresh Account" />
-            <Button layoutX="549.0" layoutY="275.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="167.0" text="Refresh Profile" />
-            <ComboBox fx:id="cbUpdateProfile" layoutX="549.0" layoutY="309.0" prefHeight="27.0" prefWidth="167.0" promptText="Profile" />
-            <Button layoutX="970.0" layoutY="343.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="167.0" text="Refresh Profile" />
+            <Button layoutX="549.0" layoutY="243.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="167.0" text="Refresh Profile" />
+            <ComboBox fx:id="cbProfile" layoutX="549.0" layoutY="309.0" prefHeight="27.0" prefWidth="167.0" promptText="Profile" />
+            <Button layoutX="970.0" layoutY="307.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="167.0" text="Refresh Profile" />
             <Button layoutX="149.0" layoutY="540.0" mnemonicParsing="false" onAction="#printProfiles" prefHeight="27.0" prefWidth="129.0" text="Test profile" />
+            <ComboBox layoutX="549.0" layoutY="276.0" onMouseClicked="#refreshAccountsUpdate" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
+            <ComboBox layoutX="970.0" layoutY="343.0" onMouseClicked="#refreshAccountsUpdate" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
          </children>
       </AnchorPane>
    </children>

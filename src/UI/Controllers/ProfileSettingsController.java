@@ -23,6 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileSettingsController {
+    private String account;
+
+
     @FXML
     public ComboBox<Profile> cbProfile;
 
@@ -30,10 +33,10 @@ public class ProfileSettingsController {
     public ComboBox<Account> cbAccount;
 
     @FXML
-    List<Account> accounts;
+    public ComboBox<Account> cbUpdate;
 
     @FXML
-    List<Profile> profiles;
+    List<Account> accounts;
 
     @FXML
     private TextField createProfileName;
@@ -60,18 +63,17 @@ public class ProfileSettingsController {
     }
 
     @FXML
-    private void createProfile(){
+    private void addProfile(){
         ProfileQueries profileQueries = new ProfileQueries();
-        Account account = cbAccount.getSelectionModel().getSelectedItem();
+        Account account = cbUpdate.getSelectionModel().getSelectedItem();
 
         if (account != null){
-            boolean succeeded = profileQueries.createProfile(account, createProfileName.getText(), Integer.parseInt(createProfileAge.getText()));
-
+            Profile profile = new Profile(createProfileName.getText(),Integer.parseInt(createProfileAge.getText()), account.getEmail());
+            boolean succeeded = profileQueries.createProfile(profile);
             if (succeeded){
                 new Alert(Alert.AlertType.INFORMATION,"Profile Created.").show();
             } else {
                 new Alert(Alert.AlertType.ERROR,"An error occurred while creating a profile.").show();
-
             }
         }
     }
@@ -120,6 +122,16 @@ public class ProfileSettingsController {
         } else {
             new Alert(Alert.AlertType.ERROR,"An error occurred while removing the profile.").show();
         }
+    }
+
+    @FXML
+    public void refreshAccountsUpdate() {
+        AccountQueries account = new AccountQueries();
+        accounts = account.getAll();
+        ObservableList cbList = FXCollections.observableList(accounts);
+        cbUpdate.setItems(cbList);
+        createProfileName.setText("");
+        createProfileAge.setText("");
     }
 
 
