@@ -274,8 +274,12 @@ public class ProfileSettingsController {
         Episode episode = cbListEpisodes.getSelectionModel().getSelectedItem();
         int minutes = Integer.parseInt(minutesWatched1.getText());
         int programId = episode.getProgramId();
+        if (minutes <= episode.getDurationInMinutes()) {
+            hasWatchedQueries.createHasWatchedEpisode(profile.getProfileName(), account.getEmail(), minutes, programId);
+        } else if (minutes > episode.getDurationInMinutes()){
+            new Alert(Alert.AlertType.ERROR,"Watched minutes can't be higher than the duration!");
 
-        hasWatchedQueries.createHasWatchedEpisode(profile.getProfileName(),account.getEmail(),minutes, programId);
+        }
     }
 
 
@@ -326,7 +330,6 @@ public class ProfileSettingsController {
         Movie movie = cbListMovies1.getSelectionModel().getSelectedItem();
         int minutes = Integer.parseInt(minutesWatched2.getText());
         int programId = movie.getProgramId();
-
         hasWatchedQueries.updateHasWatchedMovie(profile.getProfileName(),account.getEmail(),minutes, programId);
     }
 
@@ -382,7 +385,11 @@ public class ProfileSettingsController {
         int minutes = Integer.parseInt(minutesWatched3.getText());
         int programId = episode.getProgramId();
 
-        hasWatchedQueries.updateHasWatchedEpisode(profile.getProfileName(),account.getEmail(), minutes, programId);
+        if (minutes <= episode.getDurationInMinutes()) {
+            hasWatchedQueries.updateHasWatchedEpisode(profile.getProfileName(), account.getEmail(), minutes, programId);
+        } else if (minutes > episode.getDurationInMinutes()){
+            new Alert(Alert.AlertType.ERROR,"Watched minutes can't be higher than the duration!");
+        }
     }
 
 
