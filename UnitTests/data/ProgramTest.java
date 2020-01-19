@@ -23,6 +23,6 @@ class ProgramTest {
         final String result = programUnderTest.toString();
 
         // Verify the results
-        assertEquals("result", result);
+        assertEquals("Program title: title" , result);
     }
 }

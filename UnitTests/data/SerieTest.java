@@ -22,6 +22,6 @@ class SerieTest {
         final String result = serieUnderTest.toString();
 
         // Verify the results
-        assertEquals("result", result);
+        assertEquals("Series title: title", result);
     }
 }
