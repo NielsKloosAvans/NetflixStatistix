@@ -10,7 +10,7 @@ import java.util.List;
 public class AccountOneProfile {
     DBconnection database = new DBconnection();
 
-    public List<Account> getAll() {
+    public List<Account> getAll () {
         ArrayList<Account> accounts = new ArrayList<>();
         ArrayList<Profile> profiles = new ArrayList<>();
         try {

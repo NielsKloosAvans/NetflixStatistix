@@ -8,7 +8,7 @@ public class DBconnection {
     private String connectionUrl;
 
     public DBconnection() {
-        connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=Netflix;user=sa;password=Dockersql123;";
+        connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=Netflix;integratedSecurity=true";
         connection = null;
         statement = null;
     }
@@ -19,25 +19,6 @@ public class DBconnection {
         connection = DriverManager.getConnection(connectionUrl);
         statement = connection.createStatement();
     }
-
-    public void CloseConnection() throws SQLException {
-        statement.close();
-        connection.close();
-    }
-
-    public ResultSet readQuery(String SQL) throws Exception {
-        return this.statement.executeQuery(SQL);
-    }
-
-
-    public void queryExecute(String SQL) throws Exception {
-        this.statement.execute(SQL);
-    }
-
-    public int updateQuery(String SQL) throws Exception {
-        return this.statement.executeUpdate(SQL);
-    }
-
 
     public Statement getStatement() {
         return statement;
