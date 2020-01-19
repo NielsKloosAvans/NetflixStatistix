@@ -1,7 +1,6 @@
 package data;
 
 public class Series extends Program {
-
     private int durationInMinutes;
     private int numberOfSeasons;
     private String youMayLike;
@@ -27,6 +26,13 @@ public class Series extends Program {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Series title: " + super.getTitle();
     }
+
+    @Override
+    public String getTitle() {
+        return super.getTitle();
+    }
+
+
 }

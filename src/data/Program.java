@@ -38,6 +38,6 @@ public abstract class Program {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Program title: " + this.title;
     }
 }
