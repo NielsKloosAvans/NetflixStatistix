@@ -39,8 +39,8 @@ public class LoginViewController {
     @FXML
     private TextField txtLoginPassword;
 
-    public static boolean isValid(String email) {
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+    public static boolean isValid(String email) {               //Validate Register Email
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
                 "A-Z]{2,7}$";
@@ -51,11 +51,14 @@ public class LoginViewController {
         return pat.matcher(email).matches();
     }
 
-    public void makeAccount() {
+    public void makeAccount() {                                                                                 //Register a new account
         AccountQueries account = new AccountQueries();
-        if (!txtRegisterEmail.getText().isEmpty() && !txtRegisterName.getText().isEmpty() && !txtRegisterPassword.getText().isEmpty() && !txtRegisterAddress.getText().isEmpty() && !txtRegisterCity.getText().isEmpty() &&isValid(txtRegisterEmail.getText())) {
+        if (!txtRegisterEmail.getText().isEmpty() && !txtRegisterName.getText().isEmpty() &&                    //Check if no fields are empty
+                !txtRegisterPassword.getText().isEmpty() && !txtRegisterAddress.getText().isEmpty()
+                && !txtRegisterCity.getText().isEmpty() && isValid(txtRegisterEmail.getText())) {
 
-            boolean succeeded = account.createAccount(txtRegisterName.getText(), txtRegisterEmail.getText(), txtRegisterPassword.getText(), txtRegisterAddress.getText(), txtRegisterCity.getText());
+            boolean succeeded = account.createAccount(txtRegisterName.getText(), txtRegisterEmail.getText(),    //Create account
+                    txtRegisterPassword.getText(), txtRegisterAddress.getText(), txtRegisterCity.getText());
             if (succeeded) {
                 new Alert(Alert.AlertType.INFORMATION, "Account created.").show();
 
@@ -64,27 +67,27 @@ public class LoginViewController {
             }
 
 
-        } else if (!isValid(txtRegisterEmail.getText())){
+        } else if (!isValid(txtRegisterEmail.getText())) {
             new Alert(Alert.AlertType.ERROR, "Failed to create an account.").show();
         }
 
     }
 
 
-    public void loginAccount(ActionEvent event) throws IOException{
+    public void loginAccount(ActionEvent event) throws IOException {                                             //Login with existing account
         AccountQueries account = new AccountQueries();
-            if (!txtLoginEmail.getText().isEmpty() || !txtLoginPassword.getText().isEmpty()){
-                boolean succeeded = account.loginAccount(txtLoginEmail.getText(), txtLoginPassword.getText());
-                if(succeeded){
-                    new Alert(Alert.AlertType.INFORMATION,"Login Successful.").show();
-                    Parent AccountView = FXMLLoader.load(getClass().getResource("AccountView.fxml"));
-                    Scene AccountScene = new Scene(AccountView);
-                    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-                    window.setScene(AccountScene);
-                    window.show();
-                } else {
-                    new Alert(Alert.AlertType.ERROR,"Failed to login.").show();
-                }
+        if (!txtLoginEmail.getText().isEmpty() || !txtLoginPassword.getText().isEmpty()) {
+            boolean succeeded = account.loginAccount(txtLoginEmail.getText(), txtLoginPassword.getText());
+            if (succeeded) {
+                new Alert(Alert.AlertType.INFORMATION, "Login Successful.").show();
+                Parent AccountView = FXMLLoader.load(getClass().getResource("AccountView.fxml"));
+                Scene AccountScene = new Scene(AccountView);
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.setScene(AccountScene);
+                window.show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Failed to login.").show();
             }
         }
     }
+}

@@ -96,19 +96,18 @@ public class AccountSettingsController {
     }
 
     @FXML
-        public void removeAccount(){            //Remove Account
-            AccountQueries accountQueries = new AccountQueries();
-            Account account = cbRemove.getSelectionModel().getSelectedItem();
-            boolean succeeded = accountQueries.deleteAccount(account);
+    public void removeAccount() {            //Remove Account
+        AccountQueries accountQueries = new AccountQueries();
+        Account account = cbRemove.getSelectionModel().getSelectedItem();
+        boolean succeeded = accountQueries.deleteAccount(account);
 
-            if (succeeded){
-                refreshAccountsRemove();
-                new Alert(Alert.AlertType.INFORMATION, "Removed account successfully.").show();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Removed account unsuccessfully.").show();
-            }
+        if (succeeded) {
+            refreshAccountsRemove();
+            new Alert(Alert.AlertType.INFORMATION, "Removed account successfully.").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Removed account unsuccessfully.").show();
         }
-
+    }
 
 
 }

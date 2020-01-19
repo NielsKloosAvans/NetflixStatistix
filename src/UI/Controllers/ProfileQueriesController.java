@@ -44,7 +44,7 @@ public class ProfileQueriesController {
     public List<Episode> episodes;
 
     @FXML
-    public void refreshAccount() {
+    public void refreshAccount() {                                          //Refresh account
         AccountQueries account = new AccountQueries();
         accounts = account.getAll();
         ObservableList cbList = FXCollections.observableList(accounts);
@@ -52,7 +52,7 @@ public class ProfileQueriesController {
     }
 
     @FXML
-    public void refreshAccountWatched() {
+    public void refreshAccountWatched() {                                   //Refresh WatchedAccounts
         AccountQueries account = new AccountQueries();
         accounts = account.getAll();
         ObservableList cbList = FXCollections.observableList(accounts);
@@ -61,7 +61,7 @@ public class ProfileQueriesController {
 
 
     @FXML
-    public void refreshCbSeries() {
+    public void refreshCbSeries() {                                         //Refresh Series
         SeriesQueries seriesQueries = new SeriesQueries();
         series = seriesQueries.getAll();
         ObservableList<Series> cbList = FXCollections.observableList(series);
@@ -69,7 +69,7 @@ public class ProfileQueriesController {
     }
 
     @FXML
-    public void refreshCbSeriesAccount() {
+    public void refreshCbSeriesAccount() {                                  //Refresh Series for specific Account
         SeriesQueries seriesQueries = new SeriesQueries();
         series = seriesQueries.getAll();
         ObservableList<Series> cbList = FXCollections.observableList(series);
@@ -77,30 +77,30 @@ public class ProfileQueriesController {
     }
 
     @FXML
-    public void showWatchedSeries(){
+    public void showWatchedSeries() {                                        //Show all watched series with percentage
         EpisodeAverageWatchedSeries episodeAverageWatchedSeries = new EpisodeAverageWatchedSeries();
         Series series = cbSeries.getSelectionModel().getSelectedItem();
         episodes = episodeAverageWatchedSeries.episodeGetPercentage(series);
-        for(Episode episode : episodes) {
+        for (Episode episode : episodes) {
             System.out.println(episode + "Percentage Watched: " + episode.getPercentageWatched() + "% \n");
         }
 
     }
 
     @FXML
-    public void showWatchedSeriesAccount(){
+    public void showWatchedSeriesAccount() {                                 //Show all watched series with percentage for specific account
         EpisodeAverageWatched episodeAverageWatched = new EpisodeAverageWatched();
         Series series = cbSeriesAccount.getSelectionModel().getSelectedItem();
         Account account = cbAccountWatched.getSelectionModel().getSelectedItem();
         episodes = episodeAverageWatched.episodeGetPercentage(series, account);
-        for(Episode episode :episodes) {
+        for (Episode episode : episodes) {
             System.out.println(episode + "Percentage Watched: " + episode.getPercentageWatched() + "% \n");
         }
     }
 
 
     @FXML
-    private void showAccountOverview(ActionEvent event) throws IOException {
+    private void showAccountOverview(ActionEvent event) throws IOException {   //Go to Account overview Scene
         Parent newView = FXMLLoader.load(getClass().getResource("AccountView.fxml"));
 
         Scene newScene = new Scene(newView);
@@ -111,7 +111,7 @@ public class ProfileQueriesController {
     }
 
     @FXML
-    private void showLongestMovieUnder16 (){
+    private void showLongestMovieUnder16() {                                  //Show longest movie under 16
         LongestMovieUnder16 longestMovieUnder16 = new LongestMovieUnder16();
         System.out.println(longestMovieUnder16.get());
     }

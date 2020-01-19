@@ -37,18 +37,6 @@ public class Episode {
         return percentageWatched;
     }
 
-    public String getEpisodeTitle() {
-        return episodeTitle;
-    }
-
-    public int getEpisodeNumber() {
-        return episodeNumber;
-    }
-
-    public int getSeasonNumber() {
-        return seasonNumber;
-    }
-
     public int getDurationInMinutes() {
         return length;
     }
