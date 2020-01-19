@@ -33,6 +33,6 @@ public class LongestMovieUnder16 {
         } catch (SQLException e) {
             System.out.println("Error while getting movie.");
         }
-        return new Movie(movie, genre, language, length, ageRating, durationInMinutes);
+        return new Movie(movie, genre, language, length, ageRating);
     }
 }

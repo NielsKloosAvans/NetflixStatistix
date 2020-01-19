@@ -27,7 +27,7 @@ public class AccountWhichMovie {
                 int length = rs.getInt("Length");
                 int ageRating = rs.getInt("AgeRating");
                 int durationInMinutes = rs.getInt("DurationInMinutes");
-                movies.add(new Movie(movieName, genre, language, length, ageRating, durationInMinutes));
+                movies.add(new Movie(movieName, genre, language, length, ageRating));
             }
 
             con.close();
