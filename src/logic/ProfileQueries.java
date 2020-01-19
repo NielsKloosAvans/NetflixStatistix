@@ -10,16 +10,12 @@ import java.util.List;
 public class ProfileQueries {
     private DBconnection database = new DBconnection();
 
-
     public boolean createProfile(Profile profile) {
         boolean result = false;
-
         String profileName = profile.getProfileName();
         String email = profile.getEmail();
         int age = profile.getAge();
 
-        Account account = new Account(email);
-        account.AddProfile(profile);
         try {
             Connection con = DriverManager.getConnection(database.getConnectionUrl());
             PreparedStatement statement = con.prepareStatement("INSERT INTO Profile (ProfileName, email, age) VALUES(?,?,?);");

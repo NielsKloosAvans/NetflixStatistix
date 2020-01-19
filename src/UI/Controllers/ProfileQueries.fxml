@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -21,52 +20,48 @@
                 </ImageView>
             <Text fill="WHITE" layoutX="103.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ProfileQueries" />
             <Text fill="WHITE" layoutX="116.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in" />
-            <RadioButton layoutX="93.0" layoutY="191.0" mnemonicParsing="false" text="Breaking Bad" textFill="WHITE" />
-            <RadioButton layoutX="93.0" layoutY="222.0" mnemonicParsing="false" text="Fargo" textFill="WHITE" />
-            <RadioButton layoutX="93.0" layoutY="252.0" mnemonicParsing="false" text="Sherlock Holmes" textFill="WHITE" />
-            <Text fill="WHITE" layoutX="93.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show watched percentage per epsiode of: ">
+            <Text fill="WHITE" layoutX="213.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show watched percentage per epsiode of: ">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Text>
-            <Button layoutX="93.0" layoutY="283.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="145.0" text="Show" />
-            <RadioButton layoutX="504.0" layoutY="220.0" mnemonicParsing="false" text="Breaking Bad" textFill="WHITE" />
-            <RadioButton layoutX="504.0" layoutY="251.0" mnemonicParsing="false" text="Fargo" textFill="WHITE" />
-            <RadioButton layoutX="504.0" layoutY="281.0" mnemonicParsing="false" text="Sherlock Holmes" textFill="WHITE" />
-            <Text fill="WHITE" layoutX="502.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show watched percentage per epsiode of: ">
+            <Button layoutX="214.0" layoutY="195.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="263.0" text="Show" />
+            <Text fill="WHITE" layoutX="213.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show watched percentage per epsiode of: ">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Text>
-            <Button layoutX="504.0" layoutY="312.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="145.0" text="Show" />
-            <ComboBox layoutX="503.0" layoutY="185.0" prefHeight="27.0" prefWidth="145.0" promptText="Account" />
-            <Text fill="WHITE" layoutX="93.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show watched movies of:">
+            <Button layoutX="214.0" layoutY="469.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="263.0" text="Show" />
+            <ComboBox fx:id="cbAccountWatched" layoutX="214.0" layoutY="401.0" onMouseClicked="#refreshCbAccountWatched" prefHeight="27.0" prefWidth="263.0" promptText="Account" />
+            <Text fill="WHITE" layoutX="214.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show watched movies of:">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Text>
-            <ComboBox layoutX="93.0" layoutY="421.0" prefHeight="27.0" prefWidth="145.0" promptText="Account" />
-            <Button layoutX="93.0" layoutY="458.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="145.0" text="Show" />
-            <Text fill="WHITE" layoutX="503.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show longest movie for under 16 years:">
+            <ComboBox fx:id="cbAccount" layoutX="214.0" layoutY="276.0" onMouseClicked="#refreshAccount" prefHeight="27.0" prefWidth="263.0" promptText="Account" />
+            <Button layoutX="214.0" layoutY="313.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="263.0" text="Show" />
+            <Text fill="WHITE" layoutX="771.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show longest movie for under 16 years:" wrappingWidth="357.0">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Text>
-            <Button layoutX="504.0" layoutY="421.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="145.0" text="Show" />
-            <Text fill="WHITE" layoutX="878.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show all accounts with only 1 profile:">
+            <Button layoutX="770.0" layoutY="289.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="357.0" text="Show" />
+            <Text fill="WHITE" layoutX="773.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show all accounts with only 1 profile:">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Text>
-            <Button layoutX="879.0" layoutY="419.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="145.0" text="Show" />
-            <Text fill="WHITE" layoutX="878.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show how many people have watched 100% of this movie:">
+            <Button layoutX="773.0" layoutY="398.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="357.0" text="Show" />
+            <Text fill="WHITE" layoutX="770.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show how many people have watched 100% of this movie:">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Text>
-            <Button layoutX="879.0" layoutY="216.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="145.0" text="Show" />
-            <ComboBox layoutX="879.0" layoutY="183.0" prefHeight="27.0" prefWidth="145.0" promptText="Movie" />
+            <Button layoutX="770.0" layoutY="195.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="357.0" text="Show" />
+            <ComboBox layoutX="770.0" layoutY="157.0" prefHeight="27.0" prefWidth="357.0" promptText="Movie" />
             <Button layoutX="999.0" layoutY="38.0" mnemonicParsing="false" onAction="#showAccountOverview" prefHeight="45.0" prefWidth="210.0" text="Back to Account Overview" />
+            <ComboBox layoutX="214.0" layoutY="157.0" prefHeight="27.0" prefWidth="263.0" promptText="Series" />
+            <ComboBox layoutX="214.0" layoutY="435.0" prefHeight="27.0" prefWidth="263.0" promptText="Series" />
             </children>
         </AnchorPane>
     </children>

@@ -23,9 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileSettingsController {
-    private String account;
-
-
     @FXML
     public ComboBox<Profile> cbProfile;
 
@@ -50,13 +47,10 @@ public class ProfileSettingsController {
     @FXML
     private TextField updateProfileAge;
 
-
     @FXML
     private void showAccountOverview(ActionEvent event) throws IOException {   //Link terug naar Account view
         Parent newView = FXMLLoader.load(getClass().getResource("AccountView.fxml"));
-
         Scene newScene = new Scene(newView);
-
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(newScene);
         window.show();
@@ -66,7 +60,6 @@ public class ProfileSettingsController {
     private void addProfile(){
         ProfileQueries profileQueries = new ProfileQueries();
         Account account = cbUpdate.getSelectionModel().getSelectedItem();
-
         if (account != null){
             Profile profile = new Profile(createProfileName.getText(),Integer.parseInt(createProfileAge.getText()), account.getEmail());
             boolean succeeded = profileQueries.createProfile(profile);
@@ -100,7 +93,6 @@ public class ProfileSettingsController {
         Profile profile = cbProfile.getSelectionModel().getSelectedItem();
         profile.setProfileName(updateProfileName.getText());
         profile.setAge(Integer.parseInt(updateProfileAge.getText()));
-
         boolean succeeded = profileQueries.updateProfile(profile);
         if (succeeded){
             refreshAccount();
@@ -114,7 +106,6 @@ public class ProfileSettingsController {
     private void removeProfile(){
         ProfileQueries profileQueries = new ProfileQueries();
         Profile profile = cbProfile.getSelectionModel().getSelectedItem();
-
         boolean succeeded = profileQueries.removeProfile(profile);
         if (succeeded){
             refreshAccount();
