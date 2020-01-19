@@ -4,5 +4,5 @@ module NetflixStatistix {
     requires java.sql;
     requires com.microsoft.sqlserver.jdbc;
 
-    opens UI.LogIn;
+    opens UI.Controllers;
 }
