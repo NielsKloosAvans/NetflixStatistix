@@ -13,7 +13,7 @@ import java.io.IOException;
 public class AccountViewController {
 
     @FXML
-    private void showLogin(ActionEvent event) throws IOException {
+    private void showLogin(ActionEvent event) throws IOException {      //Change View to LoginView Scene
         Parent newView = FXMLLoader.load(getClass().getResource("LoginView.fxml"));
 
         Scene newScene = new Scene(newView);
@@ -23,7 +23,7 @@ public class AccountViewController {
         window.show();
     }
 
-    @FXML
+    @FXML                                                                   //Change View to ProfileQueries Scene
     private void showProfileQueries(ActionEvent event) throws IOException {
         Parent AccountView = FXMLLoader.load(getClass().getResource("ProfileQueries.fxml"));
 

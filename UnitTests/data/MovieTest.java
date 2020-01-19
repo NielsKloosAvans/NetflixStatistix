@@ -22,6 +22,6 @@ class MovieTest {
         final String result = movieUnderTest.toString();
 
         // Verify the results
-        assertEquals("Movie: title\nDuration: 0", result);
+        assertEquals("Movie: title\n", result);
     }
 }

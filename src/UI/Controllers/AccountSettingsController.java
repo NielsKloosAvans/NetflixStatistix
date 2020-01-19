@@ -53,7 +53,7 @@ public class AccountSettingsController {
     }
 
     @FXML
-    private void updateAccount() {
+    private void updateAccount() {                  //Update Account
         AccountQueries accountQueries = new AccountQueries();
         Account account = cbUpdate.getSelectionModel().getSelectedItem();
         if (account != null) {
@@ -72,7 +72,7 @@ public class AccountSettingsController {
     }
 
     @FXML
-    public void refreshAccountsUpdate() {
+    public void refreshAccountsUpdate() {       //Refresh Account
         AccountQueries account = new AccountQueries();
         accounts = account.getAll();
         ObservableList cbList = FXCollections.observableList(accounts);
@@ -84,7 +84,7 @@ public class AccountSettingsController {
     }
 
     @FXML
-    public void refreshAccountsRemove() {
+    public void refreshAccountsRemove() {       //Refresh Account for Remove
         AccountQueries account = new AccountQueries();
         accounts = account.getAll();
         ObservableList cbList = FXCollections.observableList(accounts);
@@ -96,18 +96,18 @@ public class AccountSettingsController {
     }
 
     @FXML
-    public void removeAccount(){
-        AccountQueries accountQueries = new AccountQueries();
-        Account account = cbRemove.getSelectionModel().getSelectedItem();
-        boolean succeeded = accountQueries.deleteAccount(account);
+        public void removeAccount(){            //Remove Account
+            AccountQueries accountQueries = new AccountQueries();
+            Account account = cbRemove.getSelectionModel().getSelectedItem();
+            boolean succeeded = accountQueries.deleteAccount(account);
 
-        if (succeeded){
-            refreshAccountsRemove();
-            new Alert(Alert.AlertType.INFORMATION, "Removed account successfully.").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Removed account unsuccessfully.").show();
+            if (succeeded){
+                refreshAccountsRemove();
+                new Alert(Alert.AlertType.INFORMATION, "Removed account successfully.").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Removed account unsuccessfully.").show();
+            }
         }
-    }
 
 
 
