@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.ProfileSettingsController">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="531.0" prefWidth="638.0" style="-fx-background-color: #282828;" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView fitHeight="136.0" fitWidth="558.0" layoutX="354.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Netflix.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="989.0" layoutY="46.0" mnemonicParsing="false" onAction="#showAccountOverview" prefHeight="45.0" prefWidth="210.0" text="Back to Account Overview" />
+            <TextField fx:id="updateProfileAge" layoutX="558.0" layoutY="276.0" promptText="Age" />
+            <Text fill="WHITE" layoutX="568.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change profile">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Button layoutX="298.0" layoutY="313.0" mnemonicParsing="false" onAction="#addProfile" prefHeight="27.0" prefWidth="167.0" text="Create Profile" />
+            <Button layoutX="558.0" layoutY="312.0" mnemonicParsing="false" onAction="#updateProfile" prefHeight="27.0" prefWidth="167.0" text="Update profile" />
+            <Button layoutX="803.0" layoutY="313.0" mnemonicParsing="false" onAction="#removeProfile" prefHeight="27.0" prefWidth="167.0" text="Remove profile" />
+            <ComboBox fx:id="cbCreateProfile" layoutX="297.0" layoutY="208.0" onMouseClicked="#refreshAccountsCreate" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
+            <TextField fx:id="createProfileName" layoutX="297.0" layoutY="241.0" promptText="Profile Name" />
+            <TextField fx:id="createProfileAge" layoutX="297.0" layoutY="276.0" promptText="Age" />
+            <ComboBox fx:id="cbRemoveProfile" layoutX="803.0" layoutY="276.0" onMouseClicked="#refreshRemoveProfile" prefHeight="27.0" prefWidth="167.0" promptText="Profile" />
+            <ComboBox fx:id="cbUpdateProfile" layoutX="558.0" layoutY="240.0" onMouseClicked="#refreshUpdateProfile" prefHeight="27.0" prefWidth="167.0" promptText="Profile" />
+            <ComboBox fx:id="cbUpdateProfileAccount" layoutX="558.0" layoutY="207.0" onMouseClicked="#refreshAccountsUpdate" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
+            <ComboBox fx:id="cbRemoveProfileAccount" layoutX="803.0" layoutY="241.0" onMouseClicked="#refreshAccountsRemove" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
+            <Text fill="WHITE" layoutX="206.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add watched movie" />
+            <Button layoutX="197.0" layoutY="607.0" mnemonicParsing="false" onAction="#createHasWatchedMovie" prefHeight="27.0" prefWidth="167.0" text="Add watched movie" />
+            <ComboBox fx:id="cbListMovies" layoutX="198.0" layoutY="507.0" onMouseClicked="#refreshMovies" prefHeight="53.0" prefWidth="167.0" promptText="Movies" />
+            <TextField fx:id="minutesWatched" layoutX="198.0" layoutY="571.0" promptText="Minutes watched" />
+            <ComboBox fx:id="cbWatchedProfile" layoutX="198.0" layoutY="472.0" onMouseClicked="#refreshProfileWatched" prefHeight="27.0" prefWidth="167.0" promptText="Profile" />
+            <ComboBox fx:id="cbWatchedAccount" layoutX="198.0" layoutY="439.0" onMouseClicked="#refreshAccountsWatched" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
+            <ComboBox fx:id="cbListEpisodes" layoutX="443.0" layoutY="507.0" onMouseClicked="#refreshEpisodes" prefHeight="53.0" prefWidth="167.0" promptText="Episodes" />
+            <TextField fx:id="minutesWatched1" layoutX="443.0" layoutY="571.0" promptText="Minutes watched" />
+            <ComboBox fx:id="cbWatchedProfile1" layoutX="443.0" layoutY="472.0" onMouseClicked="#refreshProfileWatched1" prefHeight="27.0" prefWidth="167.0" promptText="Profile" />
+            <ComboBox fx:id="cbWatchedAccount1" layoutX="443.0" layoutY="439.0" onMouseClicked="#refreshAccountsWatched1" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
+            <Button layoutX="443.0" layoutY="607.0" mnemonicParsing="false" onAction="#createHasWatchedEpisode" prefHeight="27.0" prefWidth="167.0" text="Add watched episode" />
+            <Text fill="WHITE" layoutX="451.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add watched episode" />
+            <Text fill="WHITE" layoutX="803.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove a profile" />
+            <Text fill="WHITE" layoutX="685.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update watched movie" />
+            <Text fill="WHITE" layoutX="906.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update watched episode" />
+            <ComboBox fx:id="cbListEpisodes1" layoutX="906.0" layoutY="507.0" onMouseClicked="#refreshEpisodes1" prefHeight="53.0" prefWidth="167.0" promptText="Episodes" />
+            <TextField fx:id="minutesWatched3" layoutX="906.0" layoutY="571.0" promptText="Minutes watched" />
+            <ComboBox fx:id="cbWatchedProfile3" layoutX="906.0" layoutY="472.0" onMouseClicked="#refreshProfileWatched3" prefHeight="27.0" prefWidth="167.0" promptText="Profile" />
+            <ComboBox fx:id="cbWatchedAccount3" layoutX="906.0" layoutY="439.0" onMouseClicked="#refreshAccountsWatched3" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
+            <Button layoutX="906.0" layoutY="607.0" mnemonicParsing="false" onAction="#updateHasWatchedEpisode" prefHeight="27.0" prefWidth="178.0" text="Update watched episode" />
+            <Button layoutX="685.0" layoutY="607.0" mnemonicParsing="false" onAction="#updateHasWatchedMovie" prefHeight="27.0" prefWidth="167.0" text="Update watched movie" />
+            <ComboBox fx:id="cbListMovies1" layoutX="686.0" layoutY="507.0" onMouseClicked="#refreshMovies1" prefHeight="53.0" prefWidth="167.0" promptText="Movies" />
+            <TextField fx:id="minutesWatched2" layoutX="686.0" layoutY="571.0" promptText="Minutes watched" />
+            <ComboBox fx:id="cbWatchedProfile2" layoutX="686.0" layoutY="472.0" onMouseClicked="#refreshProfileWatched2" prefHeight="27.0" prefWidth="167.0" promptText="Profile" />
+            <ComboBox fx:id="cbWatchedAccount2" layoutX="686.0" layoutY="439.0" onMouseClicked="#refreshAccountsWatched2" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

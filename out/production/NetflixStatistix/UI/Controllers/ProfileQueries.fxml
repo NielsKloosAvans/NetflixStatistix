@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.ProfileQueriesController">
+    <children>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="531.0" prefWidth="638.0" style="-fx-background-color: #282828;" VBox.vgrow="ALWAYS">
+            <children>
+                <ImageView fitHeight="136.0" fitWidth="558.0" layoutX="354.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/Netflix.png" />
+                    </image>
+                </ImageView>
+            <Text fill="WHITE" layoutX="213.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show watched percentage per episode of: ">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <Button layoutX="214.0" layoutY="195.0" mnemonicParsing="false" onAction="#showWatchedSeries" prefHeight="27.0" prefWidth="263.0" text="Show" />
+            <Text fill="WHITE" layoutX="213.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show watched percentage per episode of: ">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <Button layoutX="214.0" layoutY="469.0" mnemonicParsing="false" onAction="#showWatchedSeriesAccount" prefHeight="27.0" prefWidth="263.0" text="Show" />
+            <ComboBox fx:id="cbAccountWatched" layoutX="214.0" layoutY="401.0" onMouseClicked="#refreshAccountWatched" prefHeight="27.0" prefWidth="263.0" promptText="Account" />
+            <Text fill="WHITE" layoutX="214.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show watched movies of:">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="cbAccount" layoutX="214.0" layoutY="276.0" onMouseClicked="#refreshAccount" prefHeight="27.0" prefWidth="263.0" promptText="Account" />
+            <Button layoutX="214.0" layoutY="313.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="263.0" text="Show" />
+            <Text fill="WHITE" layoutX="771.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show longest movie for under 16 years:" wrappingWidth="357.0">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <Button layoutX="770.0" layoutY="289.0" mnemonicParsing="false" onAction="#showLongestMovieUnder16" prefHeight="27.0" prefWidth="357.0" text="Show" />
+            <Text fill="WHITE" layoutX="773.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show all accounts with only 1 profile:">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <Button layoutX="773.0" layoutY="398.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="357.0" text="Show" />
+            <Text fill="WHITE" layoutX="770.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show how many people have watched 100% of this movie:">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <Button layoutX="770.0" layoutY="195.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="357.0" text="Show" />
+            <ComboBox layoutX="770.0" layoutY="157.0" prefHeight="27.0" prefWidth="357.0" promptText="Movie" />
+            <Button layoutX="999.0" layoutY="38.0" mnemonicParsing="false" onAction="#showAccountOverview" prefHeight="45.0" prefWidth="210.0" text="Back to Account Overview" />
+            <ComboBox fx:id="cbSeries" layoutX="214.0" layoutY="157.0" onMouseClicked="#refreshCbSeries" prefHeight="27.0" prefWidth="263.0" promptText="Series" />
+            <ComboBox fx:id="cbSeriesAccount" layoutX="214.0" layoutY="435.0" onMouseClicked="#refreshCbSeriesAccount" prefHeight="27.0" prefWidth="263.0" promptText="Series" />
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>
