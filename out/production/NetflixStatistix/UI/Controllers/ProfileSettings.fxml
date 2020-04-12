@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.ProfileSettingsController">
+<VBox prefHeight="710.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.ProfileSettingsController">
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="531.0" prefWidth="638.0" style="-fx-background-color: #282828;" VBox.vgrow="ALWAYS">
          <children>
@@ -48,7 +48,7 @@
             <ComboBox fx:id="cbWatchedAccount1" layoutX="443.0" layoutY="439.0" onMouseClicked="#refreshAccountsWatched1" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
             <Button layoutX="443.0" layoutY="607.0" mnemonicParsing="false" onAction="#createHasWatchedEpisode" prefHeight="27.0" prefWidth="167.0" text="Add watched episode" />
             <Text fill="WHITE" layoutX="451.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add watched episode" />
-            <Text fill="WHITE" layoutX="803.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove a profile" />
+            <Text fill="WHITE" layoutX="803.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove a profile" />
             <Text fill="WHITE" layoutX="685.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update watched movie" />
             <Text fill="WHITE" layoutX="906.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update watched episode" />
             <ComboBox fx:id="cbListEpisodes1" layoutX="906.0" layoutY="507.0" onMouseClicked="#refreshEpisodes1" prefHeight="53.0" prefWidth="167.0" promptText="Episodes" />
@@ -61,6 +61,8 @@
             <TextField fx:id="minutesWatched2" layoutX="686.0" layoutY="571.0" promptText="Minutes watched" />
             <ComboBox fx:id="cbWatchedProfile2" layoutX="686.0" layoutY="472.0" onMouseClicked="#refreshProfileWatched2" prefHeight="27.0" prefWidth="167.0" promptText="Profile" />
             <ComboBox fx:id="cbWatchedAccount2" layoutX="686.0" layoutY="439.0" onMouseClicked="#refreshAccountsWatched2" prefHeight="27.0" prefWidth="167.0" promptText="Select account" />
+            <Text fill="WHITE" layoutX="562.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update profile" />
+            <Text fill="WHITE" layoutX="300.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add profile" />
          </children>
       </AnchorPane>
    </children>
