@@ -8,7 +8,7 @@ public class DBconnection {
     private String connectionUrl;
 
     public DBconnection() {
-        connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=Netflix;user=sa;password=Dockersql123;";
+        connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=Netflix1;integratedSecurity=true;";
         connection = null;
         statement = null;
     }
